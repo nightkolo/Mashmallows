@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://madv71ijp5i3" path="res://scripts/objects/block_unmashed.gd" id="1_cg17m"]
 [ext_resource type="Texture2D" uid="uid://du7hfm2logsjq" path="res://assets/objects/block-white-1x2-01.png" id="2_onbp7"]
+[ext_resource type="Texture2D" uid="uid://drcifs86uiqmb" path="res://assets/world/mash-highlighter-1x2.png" id="2_vrlv6"]
 [ext_resource type="Texture2D" uid="uid://cbyhro8uojy6a" path="res://assets/objects/block-eyes-02.png" id="3_cg17m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cg17m"]
@@ -15,6 +16,11 @@ build_type = 1
 
 [node name="SpriteNode" type="Node2D" parent="." unique_id=1466462306]
 position = Vector2(0, 64)
+
+[node name="Highlight" type="Sprite2D" parent="SpriteNode" unique_id=1604238858]
+position = Vector2(0, -64)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_vrlv6")
 
 [node name="Sprite2D" type="Sprite2D" parent="SpriteNode" unique_id=73230102]
 position = Vector2(0, -64)

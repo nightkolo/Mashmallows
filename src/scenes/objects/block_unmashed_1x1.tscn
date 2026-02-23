@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bn6154eu6l5ce"]
 
 [ext_resource type="Script" uid="uid://madv71ijp5i3" path="res://scripts/objects/block_unmashed.gd" id="1_n48d1"]
+[ext_resource type="Texture2D" uid="uid://f0pl3v7mtwq5" path="res://assets/world/mash-highlighter.png" id="2_4m1b3"]
 [ext_resource type="Shape2D" uid="uid://crhhqmr3wqyt5" path="res://resources/mashed_rectangle_shape_2d.tres" id="2_qkq5r"]
 [ext_resource type="Texture2D" uid="uid://cbyhro8uojy6a" path="res://assets/objects/block-eyes-02.png" id="3_4m1b3"]
 [ext_resource type="Texture2D" uid="uid://bsji6bkbccpc8" path="res://assets/objects/block-white-01.png" id="3_atpv5"]
@@ -11,6 +12,10 @@ lock_rotation = true
 script = ExtResource("1_n48d1")
 
 [node name="SpriteNode" type="Node2D" parent="." unique_id=277771888]
+
+[node name="Highlight" type="Sprite2D" parent="SpriteNode" unique_id=690881826]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_4m1b3")
 
 [node name="Sprite2D" type="Sprite2D" parent="SpriteNode" unique_id=1558432174]
 self_modulate = Color(0.82665706, 0.82665706, 0.82665706, 1)
@@ -28,4 +33,12 @@ shape = ExtResource("2_qkq5r")
 
 [node name="Up" type="RayCast2D" parent="." unique_id=587882982]
 target_position = Vector2(0, -35)
+collision_mask = 8
+
+[node name="Right" type="RayCast2D" parent="." unique_id=468493330]
+target_position = Vector2(35, 0)
+collision_mask = 8
+
+[node name="Left" type="RayCast2D" parent="." unique_id=1431614527]
+target_position = Vector2(-35, 0)
 collision_mask = 8

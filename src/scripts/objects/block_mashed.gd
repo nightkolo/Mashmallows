@@ -1,6 +1,8 @@
 class_name Mashed
 extends CollisionShape2D
 
+signal mashable_state_changed(can_mash: bool)
+
 @export var mash_type: Util.MashType
 #@export var mash_special: Util.SpecialMashType
 @export var build_type: Util.BuildType
@@ -18,11 +20,31 @@ extends CollisionShape2D
 @onready var sprite_node: Node2D = $SpriteNode
 @onready var sprite: Sprite2D = $SpriteNode/Sprite2D
 @onready var sprite_eyes: Sprite2D = $Eyes/Sprite2D
+@onready var sprite_highlight: Sprite2D = $SpriteNode/Highlight
 
 var parent_player: Player
 var sprite_original_pos_y: float
 
 var _original_pos: Vector2
+
+var _mash_state: bool
+
+
+func can_mash() -> bool:
+	return block_detect.is_colliding()
+
+
+func _state() -> void:
+	if can_mash() && !_mash_state:
+		mashable_state_changed.emit(true)
+		_mash_state = true
+	elif !can_mash() && _mash_state:
+		mashable_state_changed.emit(false)
+		_mash_state = false
+
+
+func _process(_delta: float) -> void:
+	_state()
 
 
 func is_on_ground() -> bool: # -> O(1)
@@ -34,6 +56,8 @@ func is_on_ground() -> bool: # -> O(1)
 
 
 func _ready() -> void:
+	mashable_state_changed.connect(anim_highlight)
+	
 	if get_parent() is Player:
 		parent_player = get_parent()
 		
@@ -41,6 +65,8 @@ func _ready() -> void:
 			parent_player.child_blocks.append(self)
 		
 		parent_player.new_child_blocks.append(self)
+	
+	
 	
 	_original_pos = position
 	sprite_original_pos_y = sprite_node.position.y
@@ -142,7 +168,22 @@ func get_mashed_object(type: Util.BuildType) -> Mashed:
 			return mashed_object_1x2.instantiate()
 		_:
 			return null
-	
+
+
+## Anim
+
+var _tween_light: Tween
+
+func anim_highlight(p_mash: bool) -> void:
+	if _tween_light:
+		_tween_light.kill()
+		
+	_tween_light = get_tree().create_tween()
+	if p_mash:
+		_tween_light.tween_property(sprite_highlight, "scale", Vector2.ONE*0.52, 0.1)
+	else:
+		_tween_light.tween_property(sprite_highlight, "scale", Vector2.ONE*0.4, 0.1)
+
 
 func is_attached() -> bool:
 	return get_parent() is Player

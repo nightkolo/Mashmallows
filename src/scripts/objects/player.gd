@@ -6,6 +6,7 @@ signal has_mashed()
 signal has_jumpped()
 signal has_landed(strength: float)
 signal cherry_bomb_activated()
+signal mashable_state_changed(can_mash: bool)
 
 @export var animate: bool = true ## @experimental
 @export var auto_assign_child_blocks: bool = true
@@ -59,6 +60,11 @@ func _ready() -> void:
 		cherry_bomb_air_timer.start()
 		)
 		
+	mashable_state_changed.connect(func(m: bool):
+		print_debug(m)
+		)
+	
+	
 	new_child_blocks.clear()
 
 
@@ -253,7 +259,6 @@ func _move(delta: float) -> void:
 
 
 func _state() -> void:
-	#print(can_mash())
 	if !is_landed && is_on_floor():
 		has_landed.emit(abs(_last_velocity_y / 100.0))
 		is_landed = true
