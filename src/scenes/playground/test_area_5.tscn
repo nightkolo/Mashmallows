@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://vs5datj6ikqy" path="res://scenes/objects/block_unmashed_1x2.tscn" id="6_4u4co"]
 [ext_resource type="PackedScene" uid="uid://dm2w7x53dr4sx" path="res://scenes/world/mash_block_checker_id.tscn" id="6_5b023"]
 [ext_resource type="Script" uid="uid://blq670fy1uldv" path="res://scripts/world/order.gd" id="6_tcmjx"]
-[ext_resource type="Texture2D" uid="uid://cfb4ba36pyaqo" path="res://assets/tilemap/terrain-deco-block-white-01.png" id="7_me5s4"]
+[ext_resource type="PackedScene" uid="uid://7i2kjfba5ohg" path="res://scenes/world/deco_block_white.tscn" id="7_me5s4"]
+[ext_resource type="PackedScene" uid="uid://chrfjxt3c0qf3" path="res://scenes/world/deco_block_golden.tscn" id="8_tcmjx"]
 [ext_resource type="PackedScene" uid="uid://cb0na4nijl8sd" path="res://scenes/components/level_goal.tscn" id="9_4gnph"]
 
 [node name="Level" type="Node2D" unique_id=2026468441]
@@ -44,21 +45,27 @@ script = ExtResource("6_tcmjx")
 [node name="MashBlockCheckerID" parent="World/Order" unique_id=491390326 instance=ExtResource("6_5b023")]
 position = Vector2(-64, 0)
 is_mash_type = 1
+is_build_type = 0
 
 [node name="MashBlockCheckerID5" parent="World/Order" unique_id=118236367 instance=ExtResource("6_5b023")]
 position = Vector2(-64, 128)
 is_mash_type = 1
+is_build_type = 0
 
 [node name="MashBlockCheckerID3" parent="World/Order" unique_id=1667538850 instance=ExtResource("6_5b023")]
 is_mash_type = 99
+is_build_type = 0
 
 [node name="MashBlockCheckerID4" parent="World/Order" unique_id=364107440 instance=ExtResource("6_5b023")]
 position = Vector2(0, 96)
+is_mash_type = 0
 is_build_type = 1
 
-[node name="TerrainDecoBlockWhite01" type="Sprite2D" parent="World" unique_id=2055439790]
+[node name="DecoBlock" parent="World" unique_id=825592049 instance=ExtResource("7_me5s4")]
 position = Vector2(896, 128)
-texture = ExtResource("7_me5s4")
+
+[node name="DecoBlock2" parent="World" unique_id=1372033511 instance=ExtResource("8_tcmjx")]
+position = Vector2(896, 128)
 
 [node name="Player" parent="." unique_id=1691389058 instance=ExtResource("4_t5fck")]
 position = Vector2(800, 448)

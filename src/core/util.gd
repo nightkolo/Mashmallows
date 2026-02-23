@@ -34,22 +34,28 @@ static func get_block_mash_type_texture(type: MashType, build: BuildType) -> Tex
 	
 	match type:
 		MashType.WHITE:
-			text = preload("res://assets/objects/block-order-white-01.png")
+			if build != BuildType.RECTANGLE:
+				text = preload("res://assets/interface/order-white-1x1.png")
+			else:
+				text = preload("res://assets/interface/order-white-1x2.png")
 			
 		MashType.GOLDEN:
-			text = preload("res://assets/objects/block-order-golden-01.png")
-			
+			if build != BuildType.RECTANGLE:
+				text = preload("res://assets/interface/order-golden-1x1.png")
+			else:
+				text = preload("res://assets/interface/order-golden-1x2.png")
 		MashType.CHOCO:
-			text = preload("res://assets/objects/block-order-choco-01.png")
-			
+			if build != BuildType.RECTANGLE:
+				text = preload("res://assets/interface/order-choco-1x1.png")
+			else:
+				text = preload("res://assets/interface/order-choco-1x2.png")
 		MashType.BISCUIT:
-			text = preload("res://assets/objects/block-order-biscuit-01.png")
-			
+			if build != BuildType.RECTANGLE:
+				text = preload("res://assets/interface/order-biscuit-1x1.png")
+			else:
+				text = preload("res://assets/interface/order-biscuit-02.png")
 		MashType.PLAYER:
-			text = preload("res://assets/objects/block-order-player-01.png")
-			
-		#MashType.CHERRY_BOMB:
-			#text = preload("res://assets/objects/block-order-cherry-bomb-01.png")
+			text = preload("res://assets/interface/order-player-1x1.png")
 			
 	return text
 
@@ -78,9 +84,9 @@ static func get_mash_type_texture(type: MashType, build: BuildType) -> Texture2D
 			
 		MashType.BISCUIT:
 			if build ==	BuildType.RECTANGLE:
-				text = preload("res://assets/objects/block-biscuit-1x2-01.png")
+				text = preload("res://assets/objects/block-biscuit-1x2-02.png")
 			else:
-				text = preload("res://assets/objects/block-biscuit-01.png")
+				text = preload("res://assets/objects/block-biscuit-02.png")
 			
 		MashType.PLAYER:
 			text = preload("res://assets/objects/block-player-01.png")
@@ -91,6 +97,7 @@ static func get_mash_type_texture(type: MashType, build: BuildType) -> Texture2D
 	return text
 
 
+## @deprecated
 static func get_mash_type_color(type: Util.MashType, build: Util.BuildType) -> Color:
 	var col: Color
 	

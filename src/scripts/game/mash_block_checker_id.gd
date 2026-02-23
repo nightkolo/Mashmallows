@@ -15,7 +15,6 @@ class_name MashBlockCheckerID
 		is_build_type = value
 
 
-
 func _ready() -> void:
 	GameLogic.setup_mash_block(sprite, is_mash_type, is_build_type)
 

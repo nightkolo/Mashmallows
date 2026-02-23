@@ -1,7 +1,6 @@
 extends Node2D
 class_name Order
 
-
 var mash_block_checker_ids: Array[MashBlockCheckerID]
 
 var order_checker: PackedScene = preload("res://scenes/game/order_checker.tscn")

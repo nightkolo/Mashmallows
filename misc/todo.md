@@ -18,7 +18,7 @@
   - [ ] **Happy**
 - [ ] TileMap
   - [x] Basic Block (for beta, colored for worlds)
-  - [ ] Seperated Tilemaps
+  - [x] Seperated Tilemaps
     - [x] Ground
     - [x] Foreground
     - [x] Clipped Outline
@@ -44,9 +44,9 @@
 - [ ] Order Paper
   - [x] Fix presentation
   - [x] Add Star interface
-  - [ ] Add mini blocks
-    - [ ] Analyze fix scaling
-    - [ ] 1x2 sized
+  - [x] Add mini blocks
+    - [x] Analyze fix scaling
+    - [x] 1x2 sized
 - [ ] Improved game juice
   - [x] Mash highlighters
   - [ ] Unmashable highlighter
