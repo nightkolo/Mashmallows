@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cbyhro8uojy6a" path="res://assets/objects/block-eyes-02.png" id="3_4m1b3"]
 [ext_resource type="Texture2D" uid="uid://bsji6bkbccpc8" path="res://assets/objects/block-white-01.png" id="3_atpv5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4m1b3"]
+size = Vector2(70, 70)
+
 [node name="Unmashed" type="RigidBody2D" unique_id=1096808338]
 collision_layer = 9
 lock_rotation = true
@@ -35,10 +38,9 @@ shape = ExtResource("2_qkq5r")
 target_position = Vector2(0, -35)
 collision_mask = 8
 
-[node name="Right" type="RayCast2D" parent="." unique_id=468493330]
-target_position = Vector2(35, 0)
-collision_mask = 8
+[node name="PlayerDetect" type="Area2D" parent="." unique_id=369197327]
+collision_layer = 0
+collision_mask = 2
 
-[node name="Left" type="RayCast2D" parent="." unique_id=1431614527]
-target_position = Vector2(-35, 0)
-collision_mask = 8
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect" unique_id=37302410]
+shape = SubResource("RectangleShape2D_4m1b3")

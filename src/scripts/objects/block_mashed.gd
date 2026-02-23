@@ -35,6 +35,8 @@ func can_mash() -> bool:
 
 
 func _state() -> void:
+	# TODO: Switch to Area2D signals to trim down performance bottlenecks
+	
 	if can_mash() && !_mash_state:
 		mashable_state_changed.emit(true)
 		_mash_state = true

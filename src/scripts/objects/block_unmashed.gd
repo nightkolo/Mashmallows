@@ -11,6 +11,8 @@ extends RigidBody2D
 		#$SpriteNode/Sprite2D.texture = Util.get_mash_type_texture(mash_type, value)
 		#build_type = value
 
+@onready var player_detect: Area2D = $PlayerDetect
+
 @onready var up: RayCast2D = $Up
 @onready var sprite: Sprite2D = $SpriteNode/Sprite2D
 @onready var colli: CollisionShape2D = $CollisionShape2D
@@ -35,6 +37,16 @@ func anim_highlight(p_mash: bool) -> void:
 
 func _ready() -> void:
 	GameLogic.setup_mash(sprite, mash_type, build_type)
+	
+	player_detect.body_entered.connect(func(body: Node2D):
+		if body is Player:
+			anim_highlight(true)
+		)
+		
+	player_detect.body_exited.connect(func(body: Node2D):
+		if body is Player:
+			anim_highlight(false)
+		)
 	
 	colli_shape = colli.shape
 	
