@@ -9,7 +9,7 @@
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_euh6i")
-what_im_happy_with = 99
+is_mash_type = 99
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=748763289]
 visible = false

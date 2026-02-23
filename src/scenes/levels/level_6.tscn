@@ -50,4 +50,4 @@ position = Vector2(896, 448)
 
 [node name="MashBlockChecker2" parent="OrderChecker" unique_id=1409629211 instance=ExtResource("8_ppjov")]
 position = Vector2(-64, 0)
-what_im_happy_with = 1
+is_mash_type = 1

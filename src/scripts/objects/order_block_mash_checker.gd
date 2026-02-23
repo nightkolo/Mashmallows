@@ -2,12 +2,12 @@
 extends Area2D
 class_name MashBlockChecker
 
-@export var what_im_happy_with: Util.MashType
-@export var what_im_built_like: Util.BuildType
+@export var is_mash_type: Util.MashType
+@export var is_build_type: Util.BuildType
 
 
 func _ready() -> void:
-	#GameLogic.setup_mash_block(sprite, what_im_happy_with, what_im_built_like)
+	#GameLogic.setup_mash_block(sprite, is_mash_type, is_build_type)
 	
 	if get_parent() is OrderChecker:
 		(get_parent() as OrderChecker).order_blocks.append(self)
@@ -23,13 +23,13 @@ func check_satisfaction() -> bool: # Ok -> O(1), worst case -> O(n)
 
 	#print("")
 	#print_debug(self)
-	#print_debug(what_im_happy_with)
+	#print_debug(is_mash_type)
 	#print_debug(areas)
 
 	if areas.size() == 1 && areas[0] is MashBlock:
 		#print_debug((areas[0] as MashBlock).mash_type)
 		
-		value = (areas[0] as MashBlock).is_match(what_im_happy_with)
+		value = (areas[0] as MashBlock).is_match(is_mash_type)
 	
 	#print_debug(value)
 	

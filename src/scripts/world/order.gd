@@ -20,8 +20,8 @@ func _ready() -> void:
 		
 		# TODO: ...change these questionable variable names
 		m.position = id.position
-		m.what_im_happy_with = id.what_im_happy_with
-		m.what_im_built_like = id.what_im_built_like
+		m.is_mash_type = id.is_mash_type
+		m.is_build_type = id.is_build_type
 		
 		oc.add_child(m)
 	

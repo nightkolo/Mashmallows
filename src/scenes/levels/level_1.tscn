@@ -39,8 +39,8 @@ position = Vector2(256, 352)
 
 [node name="MashBlockChecker2" parent="OrderChecker" unique_id=1188318660 instance=ExtResource("7_oc4kc")]
 position = Vector2(64, 0)
-what_im_happy_with = 0
+is_mash_type = 0
 
 [node name="MashBlockChecker3" parent="OrderChecker" unique_id=1577769492 instance=ExtResource("7_oc4kc")]
 position = Vector2(-64, 0)
-what_im_happy_with = 0
+is_mash_type = 0
