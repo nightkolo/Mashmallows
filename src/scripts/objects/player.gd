@@ -10,8 +10,6 @@ signal mashable_state_changed(can_mash: bool)
 
 @export var animate: bool = true ## @experimental
 @export var auto_assign_child_blocks: bool = true
-#@export var unmashed_object: PackedScene
-#@export var unmashed_object_1x2: PackedScene 
 @export_group("Movement Variables")
 @export_range(-600.0, 600.0, 1.0, "or_greater", "or_less") var speed: float = 480.0
 @export_range(-1500.0, 1500.0, 1.0, "or_greater", "or_less") var acceleration: float = 1000.0
@@ -64,7 +62,6 @@ func _ready() -> void:
 		print_debug(m)
 		)
 	
-	
 	new_child_blocks.clear()
 
 
@@ -74,13 +71,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("move_unmash"):
 		unmash()
-		
-	#if event.is_action_pressed("game_cancel"):
-		#for ray: RayCast2D in mashed.block_detect.cherry_bomb_rays:
-			#ray.force_raycast_update()
-			#print_debug(ray)
-			#print_debug(ray.is_colliding())
-			#print_debug(ray.get_collider())
 
 
 func get_unmashed_object(type: Util.BuildType) -> Unmashed:
@@ -104,7 +94,7 @@ func mash_child_blocks() -> void: ## Ok -> O(n)
 		block.mash()
 
 
-func unmash() -> void: ## Ok -> O(1)
+func unmash() -> void: # -> O(1)
 	if !can_unmash():
 		return
 	
@@ -113,66 +103,49 @@ func unmash() -> void: ## Ok -> O(1)
 	var old_mashed: Mashed = child_blocks[-1]
 	_pos_before_mash = position
 	
-	# TODO: Refactor and clean up, Move cherry_bomb into its own function
-	# Analyze and clean up logic
-	
 	match old_mashed.mash_type:
 		Util.MashType.CHERRY_BOMB:
 			if !is_on_floor():
 				return
-			
-			child_blocks.pop_back()
-			
-			cherry_bomb_activated.emit()
-			
-			var push_to: Vector2
-			
-			for ray: RayCast2D in old_mashed.block_detect.cherry_bomb_rays:
-				ray.force_raycast_update()
-				if ray.get_collider() is Player:
-					push_to = -ray.target_position.sign()
-			
-			if push_to.y > push_to.x && velocity.y > 0:
-				velocity.y = 0.0
 				
-			velocity += -push_to * CHERRY_BOMB_STRENGTH
+			_handle_cherry_bomb(old_mashed)
 			
-			old_mashed.queue_free()
-		
 		Util.MashType.AIR_CHERRY_BOMB:
-			cherry_bomb_activated.emit()
-			
-			child_blocks.pop_back()
-			
-			var push_to: Vector2
-			
-			for ray: RayCast2D in old_mashed.block_detect.cherry_bomb_rays:
-				ray.force_raycast_update()
-				if ray.get_collider() is Player:
-					push_to = -ray.target_position.sign()
-			
-			if push_to.y > push_to.x && velocity.y > 0:
-				velocity.y = 0.0
-				
-			velocity += -push_to * CHERRY_BOMB_STRENGTH
-			
-			old_mashed.queue_free()
+			_handle_cherry_bomb(old_mashed)
 			
 		_:
 			if !is_on_floor():
 				return
-			
+				
 			child_blocks.pop_back()
-			
+	
 			var unmashed: Unmashed = get_unmashed_object(old_mashed.build_type)
-					
 			unmashed.global_position = old_mashed.global_position
 			unmashed.mash_type = old_mashed.mash_type
+
 			old_mashed.queue_free()
-			
 			GameMgr.current_level.add_child(unmashed)
-			
+
 			await return_position()
+
+
+func _handle_cherry_bomb(old_mashed: Mashed) -> void:
+	child_blocks.pop_back()
+	cherry_bomb_activated.emit()
+	
+	var push_to: Vector2 = Vector2.ZERO
+	
+	for ray: RayCast2D in old_mashed.block_detect.cherry_bomb_rays:
+		ray.force_raycast_update()
+		if ray.get_collider() is Player:
+			push_to = -ray.target_position.sign()
+	
+	if push_to.y > push_to.x && velocity.y > 0:
+		velocity.y = 0.0
+	
+	velocity += -push_to * CHERRY_BOMB_STRENGTH
+	
+	old_mashed.queue_free()
 
 
 func is_being_flown() -> bool:
@@ -235,7 +208,6 @@ func _move(delta: float) -> void:
 	if Input.is_action_just_released("move_jump") and velocity.y < 0.0:
 		velocity.y = velocity.y / 2.0
 	
-
 	# Horizontal movement with acceleration
 	input_direction = Input.get_axis("move_left", "move_right")
 

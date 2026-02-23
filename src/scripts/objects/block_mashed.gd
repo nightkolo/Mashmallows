@@ -4,14 +4,11 @@ extends CollisionShape2D
 signal mashable_state_changed(can_mash: bool)
 
 @export var mash_type: Util.MashType
-#@export var mash_special: Util.SpecialMashType
 @export var build_type: Util.BuildType
 
 @export_category("Objects to Assign")
 @export var mashed_object: PackedScene = preload("res://scenes/objects/block_mashed_1x1.tscn")
 @export var mashed_object_1x2: PackedScene = preload("res://scenes/objects/block_mashed_1x2.tscn")
-#@export var mashed_object: PackedScene
-#@export var mashed_object_1x2: PackedScene
 
 @onready var block_detect: BlockDetector = $BlockDetect
 @onready var block: MashBlock = $MashBlock
@@ -26,7 +23,6 @@ var parent_player: Player
 var sprite_original_pos_y: float
 
 var _original_pos: Vector2
-
 var _mash_state: bool
 
 
@@ -58,6 +54,9 @@ func is_on_ground() -> bool: # -> O(1)
 
 
 func _ready() -> void:
+	_original_pos = position
+	sprite_original_pos_y = sprite_node.position.y
+	
 	mashable_state_changed.connect(anim_highlight)
 	
 	if get_parent() is Player:
@@ -67,11 +66,6 @@ func _ready() -> void:
 			parent_player.child_blocks.append(self)
 		
 		parent_player.new_child_blocks.append(self)
-	
-	
-	
-	_original_pos = position
-	sprite_original_pos_y = sprite_node.position.y
 	
 	GameLogic.setup_mash(sprite, mash_type, build_type)
 	block.mash_type = mash_type
@@ -171,9 +165,7 @@ func get_mashed_object(type: Util.BuildType) -> Mashed:
 		_:
 			return null
 
-
 ## Anim
-
 var _tween_light: Tween
 
 func anim_highlight(p_mash: bool) -> void:

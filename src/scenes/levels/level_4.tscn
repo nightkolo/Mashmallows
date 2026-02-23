@@ -51,11 +51,9 @@ position = Vector2(608, 384)
 
 [node name="MashBlockChecker2" parent="OrderChecker" unique_id=1409629211 instance=ExtResource("7_hsvsk")]
 position = Vector2(-64, 0)
-is_mash_type = 0
 
 [node name="MashBlockChecker3" parent="OrderChecker" unique_id=1713969590 instance=ExtResource("7_hsvsk")]
 position = Vector2(0, 64)
-is_mash_type = 0
 
 [node name="MashBlockChecker4" parent="OrderChecker" unique_id=102094504 instance=ExtResource("7_hsvsk")]
 position = Vector2(-64, 64)

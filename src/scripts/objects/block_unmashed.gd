@@ -11,29 +11,15 @@ extends RigidBody2D
 		#$SpriteNode/Sprite2D.texture = Util.get_mash_type_texture(mash_type, value)
 		#build_type = value
 
-@onready var player_detect: Area2D = $PlayerDetect
-
 @onready var up: RayCast2D = $Up
-@onready var sprite: Sprite2D = $SpriteNode/Sprite2D
+@onready var player_detect: Area2D = $PlayerDetect
 @onready var colli: CollisionShape2D = $CollisionShape2D
 
+## For Anim
+@onready var sprite: Sprite2D = $SpriteNode/Sprite2D
 @onready var sprite_highlight: Sprite2D = $SpriteNode/Highlight
 
-#var up_2: RayCast2D
 var colli_shape: RectangleShape2D
-
-var _tween_light: Tween
-
-func anim_highlight(p_mash: bool) -> void:
-	if _tween_light:
-		_tween_light.kill()
-		
-	_tween_light = get_tree().create_tween()
-	if p_mash:
-		_tween_light.tween_property(sprite_highlight, "scale", Vector2.ONE*0.52, 0.1)
-	else:
-		_tween_light.tween_property(sprite_highlight, "scale", Vector2.ONE*0.4, 0.1)
-
 
 func _ready() -> void:
 	GameLogic.setup_mash(sprite, mash_type, build_type)
@@ -54,3 +40,16 @@ func _ready() -> void:
 
 func is_mashable() -> bool:
 	return !(up.is_colliding() && up.get_collider() is Unmashed)
+
+
+var _tween_light: Tween
+
+func anim_highlight(p_mash: bool) -> void:
+	if _tween_light:
+		_tween_light.kill()
+		
+	_tween_light = get_tree().create_tween()
+	if p_mash:
+		_tween_light.tween_property(sprite_highlight, "scale", Vector2.ONE*0.52, 0.1)
+	else:
+		_tween_light.tween_property(sprite_highlight, "scale", Vector2.ONE*0.4, 0.1)

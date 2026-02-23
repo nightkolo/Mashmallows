@@ -49,8 +49,8 @@
     - [x] 1x2 sized
 - [ ] Improved game juice
   - [x] Mash highlighters
-  - [ ] Unmashable highlighter
-  - [ ] Mashed/Unmashed state
+  - [x] Unmashable highlighter
+  - [x] Mashed/Unmashed state
   - [ ] Animations fixes
 - [ ] Promo
 
