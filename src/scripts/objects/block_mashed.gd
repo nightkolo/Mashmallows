@@ -25,7 +25,7 @@ var sprite_original_pos_y: float
 var _original_pos: Vector2
 
 
-func is_on_ground() -> bool:
+func is_on_ground() -> bool: # -> O(1)
 	for ray: RayCast2D in block_detect.ground_rays:
 		ray.force_raycast_update()
 		if ray.is_colliding():

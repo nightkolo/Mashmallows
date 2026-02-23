@@ -3,10 +3,15 @@
 ## 2-20
 
 ### Assets and design
+
 - [ ] NPC, design, dialog
 - [ ] NPC Character
   - [x] Name
   - [ ] **Design**
+    - [x] Partially, sketch
+    - [ ] Shoe design
+    - [ ] Details
+    - [ ] Color scheme
   - [ ] **Dialogue**
   - [ ] **Purpose**
 - [x] Eyes
@@ -17,7 +22,7 @@
     - [x] Ground
     - [x] Foreground
     - [x] Clipped Outline
-    - [ ] **Deco Block**
+    - [x] **Deco Block**
   - [x] Background tiles
     - [ ] **Change tile to avoid repeativeness**
   - [x] Colored for worlds
@@ -29,11 +34,12 @@
     - [x] Base
     - [x] Bright
   - [x] Proper mini blocks
-    - [ ] **1x2 blocks**
-  - [ ] **Mash highlighter**
+    - [x] **1x2 blocks**
+- [x] **Mash highlighter**
 - [ ] Interface (WIP)
 
 ### Gameplay code
+
 - [x] Switch sprites
 - [ ] Order Paper
   - [x] Fix presentation
@@ -46,6 +52,7 @@
   - [ ] Unmashable highlighter
   - [ ] Mashed/Unmashed state
   - [ ] Animations fixes
+- [ ] Promo
 
 ### Project
 
@@ -60,7 +67,6 @@
 
 ### Animation
 
-- [ ] Intro Sequence
 - [ ] Blocks
   - [ ] Sleeping
   - [ ] Attached
@@ -68,10 +74,17 @@
     - [ ] Jumping
     - [ ] Lnading
   - [ ] Trails
+  - [ ] Fun
+    - [ ] Idle animation
+    - [ ] Pressing down
+    - [ ] Hugging walls
 - [ ] Objects
   - [ ] Switch/Doors
     - [ ] Copy-paste some old animation code (yeah, I'm lazy)
 
+### Project (WIP)
+
+- [ ] Intro Sequence
 
 ## 2-12 (Legacy)
 

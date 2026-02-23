@@ -6,10 +6,10 @@ extends RigidBody2D
 	set(value):
 		$SpriteNode/Sprite2D.texture = Util.get_mash_type_texture(value, build_type)
 		mash_type = value
-@export var build_type: Util.BuildType:
-	set(value):
-		$SpriteNode/Sprite2D.texture = Util.get_mash_type_texture(mash_type, value)
-		build_type = value
+@export var build_type: Util.BuildType
+	#set(value):
+		#$SpriteNode/Sprite2D.texture = Util.get_mash_type_texture(mash_type, value)
+		#build_type = value
 
 @onready var up: RayCast2D = $Up
 @onready var sprite: Sprite2D = $SpriteNode/Sprite2D
