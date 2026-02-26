@@ -4,19 +4,9 @@
 
 ### Assets and design
 
-- [ ] NPC, design, dialog
-- [ ] NPC Character
-  - [x] Name
-  - [ ] **Design**
-    - [x] Partially, sketch
-    - [ ] Shoe design
-    - [ ] Details
-    - [ ] Color scheme
-  - [ ] **Dialogue**
-  - [ ] **Purpose**
 - [x] Eyes
-  - [ ] **Happy**
-- [ ] TileMap
+  - [x] **Happy**
+- [x] TileMap
   - [x] Basic Block (for beta, colored for worlds)
   - [x] Seperated Tilemaps
     - [x] Ground
@@ -24,7 +14,7 @@
     - [x] Clipped Outline
     - [x] **Deco Block**
   - [x] Background tiles
-    - [ ] **Change tile to avoid repeativeness**
+    - [x] **Change tile to avoid repeativeness**
   - [x] Colored for worlds
 - [x] Mechanics
   - [x] Doors
@@ -53,17 +43,34 @@
   - [x] Mashed/Unmashed state
   - [ ] Animations fixes
 - [ ] Promo
-
-### Project
-
-- [ ] Menus
-  - [ ] Start Screen
-  - [ ] Title
-  - [ ] Options
-  - [ ] Level Select
-  - [ ] Pause Menu
+  - [ ] Fun level
 
 ## Roadmap
+
+### Gameplay
+- [ ] World 1 beta
+  - [ ] 1-6
+  - [ ] 1-8
+  - [ ] 1-9
+  - [ ] 1-10
+  - [ ] Other levels
+
+### Assets and design (WIP)
+
+- [ ] Cherry bomb design
+  - [ ] Explosion
+  - [ ] Particles
+- [ ] NPC Character
+  - [x] Name
+  - [ ] **Design**
+    - [x] Partially, sketch
+    - [x] Name
+    - [ ] Shoe design
+    - [ ] Details
+    - [ ] Color scheme
+  - [ ] **Dialogue**
+  - [ ] **Purpose**
+- [ ] Vector design
 
 ### Animation
 
@@ -82,7 +89,14 @@
   - [ ] Switch/Doors
     - [ ] Copy-paste some old animation code (yeah, I'm lazy)
 
-### Project (WIP)
+### Project
+
+- [ ] Menus
+  - [ ] Start Screen
+  - [ ] Title
+  - [ ] Options
+  - [ ] Level Select
+  - [ ] Pause Menu
 
 - [ ] Intro Sequence
 
