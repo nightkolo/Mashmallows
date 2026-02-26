@@ -24,5 +24,7 @@ func _ready() -> void:
 		
 		oc.add_child(m)
 	
+	oc.position = Vector2.ONE * 30.0
+	
 	GameMgr.current_level.add_child(oc)
 	

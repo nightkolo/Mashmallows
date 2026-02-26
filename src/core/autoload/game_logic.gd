@@ -13,7 +13,7 @@ var _order_check_ori_pos: Vector2
 
 
 func reset_game_logic() -> void:
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.2).timeout
 	
 	_order_check_ori_pos = GameMgr.current_order_checker.position
 

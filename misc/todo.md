@@ -60,6 +60,11 @@
 - [ ] Cherry bomb design
   - [ ] Explosion
   - [ ] Particles
+- [ ] Level Goal panel design
+  - [ ] NinePatchRect
+- [ ] Level Goal star design
+  - [ ] Unattained
+  - [ ] Attained
 - [ ] NPC Character
   - [x] Name
   - [ ] **Design**
@@ -76,7 +81,8 @@
 
 - [ ] Blocks
   - [ ] Sleeping
-  - [ ] Attached
+  - [ ] Mashed
+  - [ ] Unmashed
   - [ ] Particles
     - [ ] Jumping
     - [ ] Lnading
@@ -85,9 +91,23 @@
     - [ ] Idle animation
     - [ ] Pressing down
     - [ ] Hugging walls
+  - [ ] Cherry bomb
+    - [ ] Attached
+    - [ ] Exploding
+    - [ ] Environment animation
+    - [ ] Screenshake
 - [ ] Objects
   - [ ] Switch/Doors
     - [ ] Copy-paste some old animation code (yeah, I'm lazy)
+- [ ] Game Loop
+  - [ ] Level Goal
+    - [ ] Order Star
+      - [ ] Idle
+      - [ ] Particles
+      - [ ] Attained
+  - [ ] Order complete
+  - [ ] Level start
+- [ ] NPC (WIP)
 
 ### Project
 
