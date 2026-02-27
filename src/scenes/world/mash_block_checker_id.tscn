@@ -2,12 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ckhbrrhb6bpm7" path="res://scripts/game/mash_block_checker_id.gd" id="1_8ye5c"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1v1sv"]
-load_path = "res://.godot/imported/block-order-player-02.png-c4cfd933ec7e6f628af7f4915a9ea22b.ctex"
-
 [node name="MashBlockCheckerID" type="Node2D" unique_id=491390326]
 script = ExtResource("1_8ye5c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1866372142]
 scale = Vector2(0.5, 0.5)
-texture = SubResource("CompressedTexture2D_1v1sv")

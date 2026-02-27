@@ -1,59 +1,19 @@
 # Todo
 
-## 2-20
-
-### Assets and design
-
-- [x] Eyes
-  - [x] **Happy**
-- [x] TileMap
-  - [x] Basic Block (for beta, colored for worlds)
-  - [x] Seperated Tilemaps
-    - [x] Ground
-    - [x] Foreground
-    - [x] Clipped Outline
-    - [x] **Deco Block**
-  - [x] Background tiles
-    - [x] **Change tile to avoid repeativeness**
-  - [x] Colored for worlds
-- [x] Mechanics
-  - [x] Doors
-  - [x] Switch  
-- [x] Paper
-  - [x] Star marshmellow
-    - [x] Base
-    - [x] Bright
-  - [x] Proper mini blocks
-    - [x] **1x2 blocks**
-- [x] **Mash highlighter**
-- [ ] Interface (WIP)
+## 2-27
 
 ### Gameplay code
-
-- [x] Switch sprites
-- [ ] Order Paper
-  - [x] Fix presentation
-  - [x] Add Star interface
-  - [x] Add mini blocks
-    - [x] Analyze fix scaling
-    - [x] 1x2 sized
-- [ ] Improved game juice
-  - [x] Mash highlighters
-  - [x] Unmashable highlighter
-  - [x] Mashed/Unmashed state
-  - [ ] Animations fixes
-- [ ] Promo
-  - [ ] Fun level
-
-## Roadmap
-
-### Gameplay
 - [ ] World 1 beta
   - [ ] 1-6
   - [ ] 1-8
   - [ ] 1-9
   - [ ] 1-10
   - [ ] Other levels
+- [ ] Promo
+  - [ ] Fun level
+- [ ] Analyze game logic
+  - [ ] Draw execution structure
+  - [ ] Fix race conditions
 
 ### Assets and design (WIP)
 
@@ -119,6 +79,50 @@
   - [ ] Pause Menu
 
 - [ ] Intro Sequence
+
+
+## 2-20 (Legacy)
+
+### Assets and design
+
+- [x] Eyes
+  - [x] **Happy**
+- [x] TileMap
+  - [x] Basic Block (for beta, colored for worlds)
+  - [x] Seperated Tilemaps
+    - [x] Ground
+    - [x] Foreground
+    - [x] Clipped Outline
+    - [x] **Deco Block**
+  - [x] Background tiles
+    - [x] **Change tile to avoid repeativeness**
+  - [x] Colored for worlds
+- [x] Mechanics
+  - [x] Doors
+  - [x] Switch  
+- [x] Paper
+  - [x] Star marshmellow
+    - [x] Base
+    - [x] Bright
+  - [x] Proper mini blocks
+    - [x] **1x2 blocks**
+- [x] **Mash highlighter**
+- [ ] Interface (WIP)
+
+### Gameplay code
+
+- [x] Switch sprites
+- [ ] Order Paper
+  - [x] Fix presentation
+  - [x] Add Star interface
+  - [x] Add mini blocks
+    - [x] Analyze fix scaling
+    - [x] 1x2 sized
+- [ ] Improved game juice
+  - [x] Mash highlighters
+  - [x] Unmashable highlighter
+  - [x] Mashed/Unmashed state
+  - [ ] Animations fixes
 
 ## 2-12 (Legacy)
 
