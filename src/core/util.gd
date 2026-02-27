@@ -10,10 +10,6 @@ enum MashType {
 	CHERRY_BOMB = 100,
 	AIR_CHERRY_BOMB = 101
 }
-enum SpecialMashType { ## @deprecated
-	REGULAR = 0,
-	CHERRY_BOMB = 1
-}
 enum BuildType {
 	SQUARE = 0,
 	RECTANGLE = 1
@@ -23,11 +19,11 @@ const MASH_WAIT_TIME = 0.5
 const ORDER_COMPLETE_WAIT_TIME = 1.0
 
 const LEVEL_FILE_BEGIN = "res://scenes/levels/level_"
-
 const LEVEL_FILE_END = ".tscn"
 
 const BLOCK_SIZE = 64.0
 const GRAVITY_MULT = 4.0
+
 
 static func get_block_mash_type_texture(type: MashType, build: BuildType) -> Texture2D:
 	var text: Texture2D

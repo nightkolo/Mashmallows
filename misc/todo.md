@@ -25,6 +25,8 @@
 - [ ] Level Goal star design
   - [ ] Unattained
   - [ ] Attained
+  - [ ] Eyes
+- [ ] BG Design
 - [ ] NPC Character
   - [x] Name
   - [ ] **Design**

@@ -11,6 +11,8 @@ var has_won: bool = false
 
 var _order_check_ori_pos: Vector2
 
+## TODO: Analyze execution structure, minimize race conditions
+
 
 func reset_game_logic() -> void:
 	await get_tree().create_timer(0.2).timeout

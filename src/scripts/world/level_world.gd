@@ -5,6 +5,7 @@ class_name World
 @export var bg_color: Color = Color(1.0, 1.0, 0.56)
 #@export var tile_color: Color = Color(1.0, 1.0, 0.45)
 @export var bg_speed: float = 4.0
+@onready var bg_node: Node2D = $BG
 
 @onready var bg_sprite: Sprite2D = $BG/Sprite2D
 
@@ -22,6 +23,8 @@ class_name World
 
 
 func _ready() -> void:
+	bg_node.modulate = Color(Color.WHITE, 1.0)
+	
 	bg_sprite.self_modulate = bg_color
 
 

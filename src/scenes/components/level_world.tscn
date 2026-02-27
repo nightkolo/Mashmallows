@@ -8,6 +8,7 @@ script = ExtResource("1_3o8b6")
 bg_speed = 2.5
 
 [node name="BG" type="Node2D" parent="." unique_id=1478079537]
+modulate = Color(1, 1, 1, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=98895027]
 self_modulate = Color(1, 1, 0.56, 1)

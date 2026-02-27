@@ -40,7 +40,7 @@ tile_set = ExtResource("5_ulyey")
 
 [node name="LevelGoal" parent="World" unique_id=1756025330 instance=ExtResource("7_ulyey")]
 
-[node name="Order" type="Node2D" parent="World" unique_id=690408388]
+[node name="Order" type="Node2D" parent="World/LevelGoal" unique_id=690408388]
 script = ExtResource("8_j81xe")
 metadata/_custom_type_script = "uid://blq670fy1uldv"
 

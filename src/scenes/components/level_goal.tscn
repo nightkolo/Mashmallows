@@ -25,8 +25,9 @@ scale = Vector2(3, 4)
 texture = SubResource("GradientTexture2D_icga6")
 
 [node name="LevelNumber" type="Label" parent="." unique_id=1805443537]
-offset_right = 91.0
-offset_bottom = 45.0
+offset_top = 16.0
+offset_right = 166.0
+offset_bottom = 61.0
 text = "Level 00-00"
 label_settings = SubResource("LabelSettings_ltds6")
 horizontal_alignment = 1
