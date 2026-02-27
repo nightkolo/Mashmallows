@@ -9,15 +9,16 @@ signal order_complete()
 var is_checking_order_match: bool = false
 var has_won: bool = false
 
-var _order_check_ori_pos: Vector2
+var order_check_ori_pos: Vector2
 
 ## TODO: Analyze execution structure, minimize race conditions
 
 
 func reset_game_logic() -> void:
-	await get_tree().create_timer(0.2).timeout
-	
-	_order_check_ori_pos = GameMgr.current_order_checker.position
+	pass
+	#await get_tree().create_timer(0.2).timeout
+	#
+	#order_check_ori_pos = GameMgr.current_order_checker.position
 
 
 func _ready() -> void:
@@ -28,17 +29,17 @@ func _ready() -> void:
 	order_checked.connect(func():
 		is_checking_order_match = false
 		
-		GameMgr.current_order_checker.global_position = _order_check_ori_pos
+		GameMgr.current_order_checker.global_position = order_check_ori_pos
 		)
 	
 	order_complete.connect(func():
 		GameMgr.game_just_ended.emit()
 		)
 	
-	await get_tree().create_timer(0.1).timeout
+	#await get_tree().create_timer(0.1).timeout
 	
-	if GameMgr.current_order_checker:
-		_order_check_ori_pos = GameMgr.current_order_checker.global_position
+	#if GameMgr.current_order_checker:
+		#order_check_ori_pos = GameMgr.current_order_checker.global_position
 
 
 func order_met() -> void:
@@ -46,6 +47,7 @@ func order_met() -> void:
 	print("Game over.")
 		
 
+## 0.05s waittime
 func check_order_completion() -> void: # Ok -> O(n), Worst case -> O(n^2)
 	if GameMgr.current_order_checker == null || GameMgr.current_level.ignore_order:
 		return

@@ -9,6 +9,7 @@ func _ready() -> void:
 	visible = false
 	
 	GameMgr.current_order_checker = self
+	GameLogic.order_check_ori_pos = global_position
 
 
 func check_satisfaction() -> bool: # Ok -> O(n), Worst case -> O(n^2)

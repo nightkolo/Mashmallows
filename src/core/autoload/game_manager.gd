@@ -4,10 +4,14 @@ signal game_just_ended()
 signal game_end()
 signal game_reset()
 
+## Self-assigned by the Entites
 var current_level_number: int
 var current_level: Level
 var current_player: Player
 var current_order_checker: OrderChecker
+
+## Level Begin
+# Variables self-assigned
 
 
 func _input(event: InputEvent) -> void:
