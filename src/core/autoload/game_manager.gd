@@ -5,10 +5,14 @@ signal game_end()
 signal game_reset()
 
 ## Self-assigned by the Entites
-var current_level_number: int
+var current_level_number: int:
+	set(value):
+		current_level_goal.level_number_label.text = str(value)
+		current_level_number = value
 var current_level: Level
 var current_player: Player
 var current_order_checker: OrderChecker
+var current_level_goal: LevelGoal
 
 ## Level Begin
 # Variables self-assigned
@@ -44,7 +48,8 @@ func goto_next_level() -> void:
 	var next_lvl_id := current_level.scene_file_path.to_int() + 1
 	var next_lvl_path := Util.LEVEL_FILE_BEGIN + str(next_lvl_id) + Util.LEVEL_FILE_END
 	
-	get_tree().change_scene_to_file(next_lvl_path)
+	if ResourceLoader.exists(next_lvl_path):
+		get_tree().change_scene_to_file(next_lvl_path)
 	
 	#if next_lvl_id <= GameUtil.NUMBER_OF_BOARDS: 
 		#Trans.slide_to_next_stage(next_lvl_path)

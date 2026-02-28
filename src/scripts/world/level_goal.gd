@@ -1,6 +1,8 @@
 extends Node2D
 class_name LevelGoal
 
+@export var level: Level
+
 @onready var level_number_label: Label = $LevelNumber
 
 @onready var star_node: Node2D = $Star
@@ -9,10 +11,15 @@ class_name LevelGoal
 
 
 func _ready() -> void:
-	await get_tree().create_timer(0.1).timeout
-	level_number_label.text = "1-" + str(GameMgr.current_level_number)
+	GameMgr.current_level_goal = self
 	
-	level_number_label.position = Vector2(-level_number_label.size.x / 2, 0.0)
+	#await get_tree().create_timer(0.1).timeout
+	#if level:
+		#level_number_label.text = "1-" + str(level.level_id)
+	#else:
+		#level_number_label.text = "1-" + str(GameMgr.current_level_number)
+	
+	level_number_label.position = Vector2(-level_number_label.size.x / 2, 16.0)
 	
 	GameLogic.order_complete.connect(func():
 		star_no_win.visible = false

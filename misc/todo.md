@@ -3,17 +3,21 @@
 ## 2-27
 
 ### Gameplay code
+
 - [ ] World 1 beta
-  - [ ] 1-6
+  - [x] 1-6
   - [ ] 1-8
   - [ ] 1-9
   - [ ] 1-10
-  - [ ] Other levels
-- [ ] Promo
-  - [ ] Fun level
+  - [x] Other levels
+- [x] Promo
+  - [x] Fun level
 - [ ] Analyze game logic
   - [ ] Draw execution structure
-  - [ ] Fix race conditions
+  - [x] Fix race conditions
+- [ ] Optimize for prototype showcase
+  - [ ] Eye movement fix
+  - [ ] Asset fixes
 
 ### Assets and design (WIP)
 

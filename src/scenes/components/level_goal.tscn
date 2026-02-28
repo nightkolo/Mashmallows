@@ -11,7 +11,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_q4i4y")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ltds6"]
-font_size = 30
+font_size = 36
 font_color = Color(0, 0, 0, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
@@ -25,9 +25,9 @@ scale = Vector2(3, 4)
 texture = SubResource("GradientTexture2D_icga6")
 
 [node name="LevelNumber" type="Label" parent="." unique_id=1805443537]
-offset_top = 16.0
-offset_right = 85.0
-offset_bottom = 58.0
+offset_top = 32.0
+offset_right = 102.0
+offset_bottom = 82.0
 text = "00-00"
 label_settings = SubResource("LabelSettings_ltds6")
 horizontal_alignment = 1
