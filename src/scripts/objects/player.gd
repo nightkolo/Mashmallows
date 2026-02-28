@@ -248,7 +248,10 @@ func _state() -> void:
 func _animate() -> void:
 	for block: Mashed in child_blocks:
 		if block:
-			block.sprite_eyes.position = velocity / 50.0
+			block.sprite_eyes.position = Vector2(
+				minf(12.0, velocity.x / 50.0),
+				minf(12.0, velocity.y / 50.0)
+			) 
 
 
 func _physics_process(delta: float) -> void:
