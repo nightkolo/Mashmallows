@@ -1,7 +1,7 @@
 extends CollisionShape2D
 class_name DoorBlock
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite_node: Node2D = $Sprite
 
 var is_activated: bool:
 	get:
@@ -10,9 +10,9 @@ var is_activated: bool:
 		set_deferred("disabled", value)
 		is_activated = value
 		if value:
-			sprite.self_modulate = Color(Color.WHITE, 0.5)
+			sprite_node.modulate = Color(Color.WHITE, 0.5)
 		else:
-			sprite.self_modulate = Color(Color.WHITE, 1.0)
+			sprite_node.modulate = Color(Color.WHITE, 1.0)
 
 
 func _ready() -> void:

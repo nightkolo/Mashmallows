@@ -11,10 +11,12 @@ size = Vector2(64, 64)
 shape = SubResource("RectangleShape2D_ivh0c")
 script = ExtResource("1_4ro5p")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1597353883]
+[node name="Sprite" type="Node2D" parent="." unique_id=1034581289]
+
+[node name="Block" type="Sprite2D" parent="Sprite" unique_id=1597353883]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_qwysj")
 
-[node name="Cross" type="Sprite2D" parent="." unique_id=880943711]
+[node name="Cross" type="Sprite2D" parent="Sprite" unique_id=880943711]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_08wc7")

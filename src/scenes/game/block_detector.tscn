@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://krw76abox8r3"]
 
-[ext_resource type="Script" uid="uid://blm45b8q7uqt5" path="res://scripts/objects/block_detector.gd" id="1_ealfv"]
+[ext_resource type="Script" uid="uid://blm45b8q7uqt5" path="res://scripts/game/block_detector.gd" id="1_ealfv"]
 
 [node name="BlockDetect" type="Node2D" unique_id=2042283883]
 script = ExtResource("1_ealfv")

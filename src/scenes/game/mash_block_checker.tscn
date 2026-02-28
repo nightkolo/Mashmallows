@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://yivkpt02m4ox"]
 
-[ext_resource type="Script" uid="uid://bspkwd50fdkqc" path="res://scripts/objects/order_block_mash_checker.gd" id="1_euh6i"]
+[ext_resource type="Script" uid="uid://bspkwd50fdkqc" path="res://scripts/game/mash_block_checker.gd" id="1_euh6i"]
 [ext_resource type="Texture2D" uid="uid://caryyi1xuxt2y" path="res://assets/objects/block-order-player-01.png" id="2_88ah0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]

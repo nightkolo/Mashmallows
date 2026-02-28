@@ -1,4 +1,4 @@
-extends Node
+extends CanvasLayer
 
 signal game_just_ended()
 signal game_end()
@@ -49,7 +49,8 @@ func goto_next_level() -> void:
 	var next_lvl_path := Util.LEVEL_FILE_BEGIN + str(next_lvl_id) + Util.LEVEL_FILE_END
 	
 	if ResourceLoader.exists(next_lvl_path):
-		get_tree().change_scene_to_file(next_lvl_path)
+		Trans.slide_to_next_stage(next_lvl_path)
+		#get_tree().change_scene_to_file(next_lvl_path)
 	
 	#if next_lvl_id <= GameUtil.NUMBER_OF_BOARDS: 
 		#Trans.slide_to_next_stage(next_lvl_path)

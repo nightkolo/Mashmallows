@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://5fpkm17tw6kn" path="res://core/level.gd" id="1_posk4"]
 [ext_resource type="PackedScene" uid="uid://bl0u0p0mf5g16" path="res://scenes/components/level_world.tscn" id="2_sjq8i"]
 [ext_resource type="TileSet" uid="uid://cuppb1uimxgtj" path="res://resources/world_tileset_01.tres" id="3_q0wsq"]
-[ext_resource type="Script" uid="uid://cyw0ns0pn6gd5" path="res://scripts/game/tile_map.gd" id="3_wreli"]
+[ext_resource type="Script" uid="uid://cyw0ns0pn6gd5" path="res://scripts/world/tile_map.gd" id="3_wreli"]
 [ext_resource type="PackedScene" uid="uid://chans4uy22002" path="res://scenes/objects/player.tscn" id="4_ivh0c"]
 [ext_resource type="Texture2D" uid="uid://cidheaemokk" path="res://assets/tilemap/ground-outline-mask.png" id="4_wreli"]
 [ext_resource type="PackedScene" uid="uid://bn6154eu6l5ce" path="res://scenes/objects/block_unmashed_1x1.tscn" id="5_wreli"]

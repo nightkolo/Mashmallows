@@ -16,8 +16,9 @@
   - [ ] Draw execution structure
   - [x] Fix race conditions
 - [ ] Optimize for prototype showcase
-  - [ ] Eye movement fix
-  - [ ] Asset fixes
+  - [x] Eye movement fix
+  - [ ] Transitions
+  - [x] Asset fixes
 
 ### Assets and design (WIP)
 
