@@ -31,9 +31,9 @@ static func get_block_mash_type_texture(type: MashType, build: BuildType) -> Tex
 	match type:
 		MashType.WHITE:
 			if build != BuildType.RECTANGLE:
-				text = preload("res://assets/interface/order-white-1x1.png")
+				text = preload("res://assets/interface/order-white-1x1-02.png")
 			else:
-				text = preload("res://assets/interface/order-white-1x2.png")
+				text = preload("res://assets/interface/order-white-1x2-02.png")
 			
 		MashType.GOLDEN:
 			if build != BuildType.RECTANGLE:
@@ -47,11 +47,11 @@ static func get_block_mash_type_texture(type: MashType, build: BuildType) -> Tex
 				text = preload("res://assets/interface/order-choco-1x2.png")
 		MashType.BISCUIT:
 			if build != BuildType.RECTANGLE:
-				text = preload("res://assets/interface/order-biscuit-1x1.png")
+				text = preload("res://assets/interface/order-biscuit-1x1-02.png")
 			else:
-				text = preload("res://assets/interface/order-biscuit-02.png")
+				text = preload("res://assets/interface/order-biscuit-1x2-03.png")
 		MashType.PLAYER:
-			text = preload("res://assets/interface/order-player-1x1.png")
+			text = preload("res://assets/interface/order-player-1x1-02.png")
 			
 	return text
 
@@ -80,15 +80,18 @@ static func get_mash_type_texture(type: MashType, build: BuildType) -> Texture2D
 			
 		MashType.BISCUIT:
 			if build ==	BuildType.RECTANGLE:
-				text = preload("res://assets/objects/block-biscuit-1x2-02.png")
+				text = preload("res://assets/objects/block-biscuit-03-1x2.png")
 			else:
-				text = preload("res://assets/objects/block-biscuit-02.png")
+				text = preload("res://assets/objects/block-biscuit-03-1x1.png")
 			
 		MashType.PLAYER:
 			text = preload("res://assets/objects/block-player-01.png")
 			
-		MashType.CHERRY_BOMB, MashType.AIR_CHERRY_BOMB:
-			text = preload("res://assets/objects/block-cherry-bomb-01.png")
+		MashType.CHERRY_BOMB:
+			text = preload("res://assets/objects/block-cherry-bomb-03.png")
+			
+		MashType.AIR_CHERRY_BOMB:
+			text = preload("res://assets/objects/block-cherry-bomb-air-01.png")
 			
 	return text
 

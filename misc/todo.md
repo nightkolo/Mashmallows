@@ -17,20 +17,25 @@
   - [x] Fix race conditions
 - [ ] Optimize for prototype showcase
   - [x] Eye movement fix
-  - [ ] Transitions
+  - [x] Transitions
   - [x] Asset fixes
+- [ ] Player
+  - [ ] State machine
+- [ ] Level Goal
+  - [ ] Precentage completion
+  - [ ] Correct block detect
 
 ### Assets and design (WIP)
 
-- [ ] Cherry bomb design
-  - [ ] Explosion
-  - [ ] Particles
-- [ ] Level Goal panel design
-  - [ ] NinePatchRect
-- [ ] Level Goal star design
-  - [ ] Unattained
-  - [ ] Attained
-  - [ ] Eyes
+- [x] Cherry bomb design
+  - [x] Explosion
+  - [x] Particles
+- [x] Level Goal panel design
+  - [x] NinePatchRect
+- [x] Level Goal star design
+  - [x] Unattained
+  - [x] Attained
+  - [x] Eyes
 - [ ] BG Design
 - [ ] NPC Character
   - [x] Name

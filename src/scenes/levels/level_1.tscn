@@ -88,3 +88,5 @@ position = Vector2(448, 448)
 
 [node name="Unmashed2" parent="." unique_id=1437268704 instance=ExtResource("5_tqpmu")]
 position = Vector2(928, 352)
+
+[editable path="World/LevelGoal"]
