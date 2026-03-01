@@ -1,5 +1,6 @@
 extends Node2D
 class_name LevelGoal
+## Let be Control
 
 @export var level: Level
 

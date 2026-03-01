@@ -15,15 +15,22 @@
 - [ ] Analyze game logic
   - [ ] Draw execution structure
   - [x] Fix race conditions
-- [ ] Optimize for prototype showcase
+- [x] Optimize for prototype showcase
   - [x] Eye movement fix
   - [x] Transitions
   - [x] Asset fixes
-- [ ] Player
-  - [ ] State machine
 - [ ] Level Goal
   - [ ] Precentage completion
   - [ ] Correct block detect
+
+## Code Improvements and goals
+
+- [ ] Player
+  - [ ] State machine
+    - [ ] Learn
+    - [ ] Document and protoype
+  - [ ] Seek feedback
+- [x] Repeating BG plug-in (TiledSprite2D, WIP)
 
 ### Assets and design (WIP)
 
@@ -36,7 +43,7 @@
   - [x] Unattained
   - [x] Attained
   - [x] Eyes
-- [ ] BG Design
+- [x] BG Design
 - [ ] NPC Character
   - [x] Name
   - [ ] **Design**
@@ -73,6 +80,9 @@
     - [ ] Copy-paste some old animation code (yeah, I'm lazy)
 - [ ] Game Loop
   - [ ] Level Goal
+    - [ ] Order Blocks
+      - [ ] Colored
+      - [ ] Uncolored
     - [ ] Order Star
       - [ ] Idle
       - [ ] Particles
@@ -80,6 +90,8 @@
   - [ ] Order complete
   - [ ] Level start
 - [ ] NPC (WIP)
+
+## Roadmap
 
 ### Project
 
@@ -89,7 +101,6 @@
   - [ ] Options
   - [ ] Level Select
   - [ ] Pause Menu
-
 - [ ] Intro Sequence
 
 

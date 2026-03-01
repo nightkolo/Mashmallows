@@ -3,14 +3,7 @@
 [ext_resource type="Script" uid="uid://chpk8tjfibon8" path="res://scripts/world/level_goal.gd" id="1_icga6"]
 [ext_resource type="Texture2D" uid="uid://xqs0m88ley7s" path="res://assets/interface/level-goal-04.png" id="2_qvjsn"]
 [ext_resource type="Texture2D" uid="uid://cex7p2po0vf0o" path="res://assets/interface/order-star-03.png" id="3_f5ssy"]
-[ext_resource type="Texture2D" uid="uid://cy4h1lgr0thop" path="res://assets/interface/shine.png" id="3_l8bwh"]
 [ext_resource type="Texture2D" uid="uid://d7ynr3djawm0" path="res://assets/interface/order-star-04.png" id="3_orw8f"]
-
-[sub_resource type="Gradient" id="Gradient_f5ssy"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_icga6"]
-gradient = SubResource("Gradient_f5ssy")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ltds6"]
 font_size = 36
@@ -21,7 +14,7 @@ outline_color = Color(0, 0, 0, 1)
 [node name="LevelGoal" type="Node2D" unique_id=1756025330]
 script = ExtResource("1_icga6")
 
-[node name="Panel2" type="NinePatchRect" parent="." unique_id=877003082]
+[node name="LevelGoalBoard" type="NinePatchRect" parent="." unique_id=877003082]
 self_modulate = Color(1, 1, 0.80363095, 1)
 clip_children = 2
 offset_left = -96.0
@@ -34,17 +27,6 @@ patch_margin_left = 128
 patch_margin_top = 128
 patch_margin_right = 126
 patch_margin_bottom = 126
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel2" unique_id=749512832]
-self_modulate = Color(1, 1, 1, 0.48600003)
-position = Vector2(224, 96)
-texture = ExtResource("3_l8bwh")
-
-[node name="Panel" type="Sprite2D" parent="." unique_id=819949824]
-visible = false
-position = Vector2(0, 128)
-scale = Vector2(3, 4)
-texture = SubResource("GradientTexture2D_icga6")
 
 [node name="LevelNumber" type="Label" parent="." unique_id=1805443537]
 offset_top = 32.0
