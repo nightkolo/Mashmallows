@@ -55,7 +55,10 @@ tile_set = ExtResource("3_d5k8w")
 position = Vector2(768, 192)
 
 [node name="LevelGoal" parent="World" unique_id=1756025330 node_paths=PackedStringArray("level") instance=ExtResource("4_s8va5")]
-position = Vector2(256, 256)
+offset_left = 256.0
+offset_top = 256.0
+offset_right = 256.0
+offset_bottom = 256.0
 level = NodePath("../..")
 
 [node name="Order" type="Node2D" parent="World/LevelGoal" unique_id=690408388]

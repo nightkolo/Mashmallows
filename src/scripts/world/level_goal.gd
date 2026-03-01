@@ -1,10 +1,10 @@
-extends Node2D
+extends Control
 class_name LevelGoal
 ## Let be Control
 
 @export var level: Level
 
-@onready var level_number_label: Label = $LevelNumber
+@onready var level_number_label: Label = %LevelNumber
 
 @onready var star_node: Node2D = $Star
 @onready var star_no_win: Sprite2D = $Star/NoWin

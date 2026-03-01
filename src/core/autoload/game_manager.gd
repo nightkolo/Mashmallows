@@ -7,7 +7,7 @@ signal game_reset()
 ## Self-assigned by the Entites
 var current_level_number: int:
 	set(value):
-		current_level_goal.level_number_label.text = str(value)
+		current_level_goal.level_number_label.text = "1-" + str(value)
 		current_level_number = value
 var current_level: Level
 var current_player: Player
