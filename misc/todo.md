@@ -27,8 +27,10 @@
 
 - [ ] Player
   - [ ] State machine
-    - [ ] Learn
-    - [ ] Document and protoype
+    - [x] Learn
+    - [x] Document and protoype
+    - [x] Design diagram
+    - [ ] Implement
   - [ ] Seek feedback
 - [x] Repeating BG plug-in (TiledSprite2D, WIP)
 
