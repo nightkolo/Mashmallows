@@ -25,6 +25,11 @@ const BLOCK_SIZE = 64.0
 const GRAVITY_MULT = 4.0
 
 
+static func round_to_dec(num: float, decimals: int) -> float:
+	return roundf(num * pow(10.0, decimals)) / pow(10.0, decimals)
+
+
+
 static func get_block_mash_type_texture(type: MashType, build: BuildType) -> Texture2D:
 	var text: Texture2D
 	

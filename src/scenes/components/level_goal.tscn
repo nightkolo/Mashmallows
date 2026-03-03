@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cb0na4nijl8sd"]
 
 [ext_resource type="Script" uid="uid://chpk8tjfibon8" path="res://scripts/world/level_goal.gd" id="1_icga6"]
+[ext_resource type="LabelSettings" uid="uid://biveh1g52dl6r" path="res://resources/label/level_number_label.tres" id="2_orw8f"]
 [ext_resource type="Texture2D" uid="uid://cex7p2po0vf0o" path="res://assets/interface/order-star-03.png" id="3_f5ssy"]
 [ext_resource type="FontFile" uid="uid://c6xkgov5mobxj" path="res://assets/addons/fonts/Nunito-Black.ttf" id="3_l8bwh"]
 [ext_resource type="Texture2D" uid="uid://d7ynr3djawm0" path="res://assets/interface/order-star-04.png" id="3_orw8f"]
@@ -8,9 +9,9 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qvjsn"]
 load_path = "res://.godot/imported/level-goal-05.png-29cd9c0425197ff7eeb4f76a5c9ea739.ctex"
 
-[sub_resource type="LabelSettings" id="LabelSettings_ltds6"]
+[sub_resource type="LabelSettings" id="LabelSettings_l8bwh"]
 font = ExtResource("3_l8bwh")
-font_size = 72
+font_size = 36
 font_color = Color(1, 1, 0.89411765, 1)
 outline_size = 15
 outline_color = Color(0.15, 0.15, 0.123, 1)
@@ -62,7 +63,7 @@ theme_override_constants/separation = 20
 unique_name_in_owner = true
 layout_mode = 2
 text = "00-00"
-label_settings = SubResource("LabelSettings_ltds6")
+label_settings = ExtResource("2_orw8f")
 horizontal_alignment = 1
 
 [node name="Star" type="Node2D" parent="." unique_id=1640468128]
@@ -77,3 +78,12 @@ visible = false
 self_modulate = Color(1, 1, 0.24780053, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_f5ssy")
+
+[node name="PercLabel" type="Label" parent="Star" unique_id=1790903418]
+unique_name_in_owner = true
+offset_left = -80.0
+offset_top = -16.0
+offset_right = -37.0
+offset_bottom = 34.0
+text = "0%"
+label_settings = SubResource("LabelSettings_l8bwh")

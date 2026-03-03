@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://06jdiqy0vc1e" path="res://assets/bg/bg-06.png" id="2_dokrb"]
 [ext_resource type="Script" uid="uid://dcwjj5nb0q5s" path="res://scripts/tiled_sprite_2d.gd" id="4_t8w17"]
 
-[node name="World" type="Node2D" unique_id=1317599791]
+[node name="World" type="Node2D" unique_id=1842092107]
 script = ExtResource("1_3o8b6")
 bg_color = Color(1, 1, 0.5601512, 1)
 
@@ -15,8 +15,10 @@ texture_repeat = 2
 texture = ExtResource("2_dokrb")
 centered = false
 region_enabled = true
-region_rect = Rect2(1466.4575, 2375.325, 1280, 800)
+region_rect = Rect2(257.7135, 257.7135, 1280, 800)
 script = ExtResource("4_t8w17")
+animate_scroll = true
+scroll_trajectory = 0.7853981633974483
 metadata/_custom_type_script = "uid://dcwjj5nb0q5s"
 
 [node name="BG" type="Node2D" parent="." unique_id=1478079537]

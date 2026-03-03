@@ -19,7 +19,7 @@
   - [x] Eye movement fix
   - [x] Transitions
   - [x] Asset fixes
-- [ ] Level Goal
+- [ ] **Level Goal**
   - [ ] Precentage completion
   - [ ] Correct block detect
 
@@ -41,11 +41,13 @@
   - [x] Particles
 - [x] Level Goal panel design
   - [x] NinePatchRect
+  - [ ] **Redesign**
+- [ ] **Mini block redesign**
 - [x] Level Goal star design
   - [x] Unattained
   - [x] Attained
   - [x] Eyes
-- [x] BG Design
+- [ ] **BG Design**
 - [ ] NPC Character
   - [x] Name
   - [ ] **Design**

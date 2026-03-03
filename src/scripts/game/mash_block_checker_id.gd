@@ -17,6 +17,9 @@ class_name MashBlockCheckerID
 
 func _ready() -> void:
 	GameLogic.setup_mash_block(sprite, is_mash_type, is_build_type)
+	
+	if is_mash_type != Util.MashType.PLAYER:
+		GameLogic.number_of_order_blocks += 1
 
 	if get_parent() is Order:
 		(get_parent() as Order).mash_block_checker_ids.append(self)
