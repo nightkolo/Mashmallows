@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b56yygeh2dlui" path="res://scripts/objects/player.gd" id="1_a8lix"]
 [ext_resource type="PackedScene" uid="uid://bt15qcfnm63xf" path="res://scenes/objects/block_mashed_1x1.tscn" id="2_2147m"]
-[ext_resource type="Script" uid="uid://so163641iedd" path="res://scripts/components/component_marshmellow_animation.gd" id="3_h5uus"]
-[ext_resource type="Script" uid="uid://ba8ddu0h1rbst" path="res://scripts/state_machine.gd" id="4_q8hb4"]
-[ext_resource type="Script" uid="uid://dhy6g1c121mo8" path="res://scripts/idle_state.gd" id="5_q8hb4"]
+[ext_resource type="Script" uid="uid://so163641iedd" path="res://scripts/components/component_player_animation.gd" id="3_h5uus"]
+[ext_resource type="Script" uid="uid://ba8ddu0h1rbst" path="res://scripts/controller/state_machine.gd" id="4_q8hb4"]
+[ext_resource type="Script" uid="uid://5q2iroi0log8" path="res://scripts/controller/run_state.gd" id="5_2rlf8"]
+[ext_resource type="Script" uid="uid://cscy5x7o5jpgj" path="res://scripts/controller/airborne_state.gd" id="5_ksjmp"]
+[ext_resource type="Script" uid="uid://dhy6g1c121mo8" path="res://scripts/controller/idle_state.gd" id="5_q8hb4"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1691389058]
 collision_layer = 2
@@ -25,7 +27,7 @@ one_shot = true
 [node name="CherryBombAirTimer" type="Timer" parent="." unique_id=1702203392]
 one_shot = true
 
-[node name="MarshmellowAnimationComponent" type="Node" parent="." unique_id=896765118]
+[node name="PlayerAnimationComponent" type="Node" parent="." unique_id=896765118]
 script = ExtResource("3_h5uus")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1326447240]
@@ -33,3 +35,9 @@ script = ExtResource("4_q8hb4")
 
 [node name="IdleState" type="Node" parent="StateMachine" unique_id=73227345]
 script = ExtResource("5_q8hb4")
+
+[node name="RunState" type="Node" parent="StateMachine" unique_id=2067635367]
+script = ExtResource("5_2rlf8")
+
+[node name="AirState" type="Node" parent="StateMachine" unique_id=2062112355]
+script = ExtResource("5_ksjmp")

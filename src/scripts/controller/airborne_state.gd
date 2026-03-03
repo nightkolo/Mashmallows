@@ -1,5 +1,6 @@
+## Under construction
 extends State
-class_name AirborneState
+class_name AirState
 
 
 func enter(msg := {}):

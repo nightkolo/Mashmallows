@@ -1,3 +1,4 @@
+## Under construction
 extends State
 class_name IdleState
 
@@ -11,4 +12,4 @@ func update(delta):
 		state_machine.change_state("RunState")
 
 	if Input.is_action_just_pressed("jump"):
-		state_machine.change_state("JumpState")
+		state_machine.change_state("AirState")
