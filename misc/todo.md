@@ -21,7 +21,7 @@
   - [x] Asset fixes
 - [ ] **Level Goal**
   - [x] Precentage completion
-  - [ ] Correct block detect
+  - [x] Correct block detect
 
 ## Code Improvements and goals
 
@@ -41,13 +41,16 @@
   - [x] Particles
 - [x] Level Goal panel design
   - [x] NinePatchRect
-  - [ ] **Redesign**
+  - [x] **Redesign**
 - [ ] **Mini block redesign**
+  - [x] Redesign
+  - [ ] Colored
+  - [ ] Greyscaled
 - [x] Level Goal star design
   - [x] Unattained
   - [x] Attained
   - [x] Eyes
-- [ ] **BG Design**
+- [x] **BG Design**
 - [ ] NPC Character
   - [x] Name
   - [ ] **Design**

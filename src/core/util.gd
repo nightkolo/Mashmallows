@@ -36,9 +36,9 @@ static func get_block_mash_type_texture(type: MashType, build: BuildType) -> Tex
 	match type:
 		MashType.WHITE:
 			if build != BuildType.RECTANGLE:
-				text = preload("res://assets/interface/order-white-1x1-02.png")
+				text = preload("res://assets/interface/order-white-03.png")
 			else:
-				text = preload("res://assets/interface/order-white-1x2-02.png")
+				text = preload("res://assets/interface/order-white-1x2-01.png")
 			
 		MashType.GOLDEN:
 			if build != BuildType.RECTANGLE:
@@ -52,11 +52,11 @@ static func get_block_mash_type_texture(type: MashType, build: BuildType) -> Tex
 				text = preload("res://assets/interface/order-choco-1x2.png")
 		MashType.BISCUIT:
 			if build != BuildType.RECTANGLE:
-				text = preload("res://assets/interface/order-biscuit-1x1-02.png")
+				text = preload("res://assets/interface/order-biscuit-1x1.png")
 			else:
-				text = preload("res://assets/interface/order-biscuit-1x2-03.png")
+				text = preload("res://assets/interface/order-biscuit-1x2.png")
 		MashType.PLAYER:
-			text = preload("res://assets/interface/order-player-1x1-02.png")
+			text = preload("res://assets/interface/order-player-03.png")
 			
 	return text
 

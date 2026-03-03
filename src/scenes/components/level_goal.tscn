@@ -1,13 +1,20 @@
 [gd_scene format=3 uid="uid://cb0na4nijl8sd"]
 
 [ext_resource type="Script" uid="uid://chpk8tjfibon8" path="res://scripts/world/level_goal.gd" id="1_icga6"]
+[ext_resource type="Texture2D" uid="uid://c37704my1omdm" path="res://assets/interface/level-goal-06.png" id="2_l8bwh"]
 [ext_resource type="LabelSettings" uid="uid://biveh1g52dl6r" path="res://resources/label/level_number_label.tres" id="2_orw8f"]
 [ext_resource type="Texture2D" uid="uid://cex7p2po0vf0o" path="res://assets/interface/order-star-03.png" id="3_f5ssy"]
 [ext_resource type="FontFile" uid="uid://c6xkgov5mobxj" path="res://assets/addons/fonts/Nunito-Black.ttf" id="3_l8bwh"]
 [ext_resource type="Texture2D" uid="uid://d7ynr3djawm0" path="res://assets/interface/order-star-04.png" id="3_orw8f"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qvjsn"]
-load_path = "res://.godot/imported/level-goal-05.png-29cd9c0425197ff7eeb4f76a5c9ea739.ctex"
+[sub_resource type="Gradient" id="Gradient_l8bwh"]
+offsets = PackedFloat32Array(0, 0.65)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2dko3"]
+gradient = SubResource("Gradient_l8bwh")
+fill = 2
+fill_from = Vector2(0.50641024, 0.52991456)
 
 [sub_resource type="LabelSettings" id="LabelSettings_l8bwh"]
 font = ExtResource("3_l8bwh")
@@ -29,14 +36,18 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Shade" type="Sprite2D" parent="Board" unique_id=894503333]
+position = Vector2(0, 127.999985)
+scale = Vector2(5, 6)
+texture = SubResource("GradientTexture2D_2dko3")
+
 [node name="LevelGoalBoard" type="NinePatchRect" parent="Board" unique_id=877003082]
-clip_children = 2
 layout_mode = 0
 offset_left = -96.0
 offset_right = 288.0
 offset_bottom = 512.0
 scale = Vector2(0.5, 0.5)
-texture = SubResource("CompressedTexture2D_qvjsn")
+texture = ExtResource("2_l8bwh")
 region_rect = Rect2(0, 0, 270, 270)
 patch_margin_left = 128
 patch_margin_top = 128
