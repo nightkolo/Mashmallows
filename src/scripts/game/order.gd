@@ -17,7 +17,7 @@ func _ready() -> void:
 	for id: MashBlockCheckerID in mash_block_checker_ids:
 		var m: MashBlockChecker = mash_block_checker.instantiate()
 		
-		# TODO: ...change these questionable variable names
+		m.corresponding_mash_block_id = id
 		m.position = id.position
 		m.is_mash_type = id.is_mash_type
 		m.is_build_type = id.is_build_type

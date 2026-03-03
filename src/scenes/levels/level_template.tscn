@@ -7,7 +7,7 @@
 [ext_resource type="TileSet" uid="uid://cuppb1uimxgtj" path="res://resources/world_tileset_01.tres" id="5_ulyey"]
 [ext_resource type="Texture2D" uid="uid://cidheaemokk" path="res://assets/tilemap/ground-outline-mask.png" id="6_j81xe"]
 [ext_resource type="PackedScene" uid="uid://cb0na4nijl8sd" path="res://scenes/components/level_goal.tscn" id="7_ulyey"]
-[ext_resource type="Script" uid="uid://blq670fy1uldv" path="res://scripts/world/order.gd" id="8_j81xe"]
+[ext_resource type="Script" uid="uid://blq670fy1uldv" path="res://scripts/game/order.gd" id="8_j81xe"]
 [ext_resource type="PackedScene" uid="uid://chans4uy22002" path="res://scenes/objects/player.tscn" id="9_qvykx"]
 
 [node name="Level" type="Node2D" unique_id=1688286197]

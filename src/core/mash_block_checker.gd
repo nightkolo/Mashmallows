@@ -5,10 +5,10 @@ class_name MashBlockChecker
 @export var is_mash_type: Util.MashType
 @export var is_build_type: Util.BuildType
 
+var corresponding_mash_block_id: MashBlockCheckerID
+
 
 func _ready() -> void:
-	#GameLogic.setup_mash_block(sprite, is_mash_type, is_build_type)
-	
 	if get_parent() is OrderChecker:
 		(get_parent() as OrderChecker).order_blocks.append(self)
 	
@@ -32,5 +32,7 @@ func check_satisfaction() -> bool: # Ok -> O(1), worst case -> O(n)
 		value = (areas[0] as MashBlock).is_match(is_mash_type)
 	
 	#print_debug(value)
+	if corresponding_mash_block_id:
+		corresponding_mash_block_id.anim_satisfied(value)
 	
 	return value

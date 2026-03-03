@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cidheaemokk" path="res://assets/tilemap/ground-outline-mask.png" id="6_t4txi"]
 [ext_resource type="PackedScene" uid="uid://cb0na4nijl8sd" path="res://scenes/components/level_goal.tscn" id="7_apo5x"]
 [ext_resource type="PackedScene" uid="uid://chrfjxt3c0qf3" path="res://scenes/world/deco_block_golden.tscn" id="7_qi5uv"]
-[ext_resource type="Script" uid="uid://blq670fy1uldv" path="res://scripts/world/order.gd" id="8_josfm"]
+[ext_resource type="Script" uid="uid://blq670fy1uldv" path="res://scripts/game/order.gd" id="8_josfm"]
 [ext_resource type="PackedScene" uid="uid://chans4uy22002" path="res://scenes/objects/player.tscn" id="9_lgrx1"]
 [ext_resource type="PackedScene" uid="uid://dm2w7x53dr4sx" path="res://scenes/world/mash_block_checker_id.tscn" id="9_n6eey"]
 [ext_resource type="PackedScene" uid="uid://bn6154eu6l5ce" path="res://scenes/objects/block_unmashed_1x1.tscn" id="10_2bnyt"]
@@ -47,11 +47,10 @@ tile_set = ExtResource("5_f6egh")
 position = Vector2(256, 576)
 
 [node name="LevelGoal" parent="World" unique_id=1756025330 instance=ExtResource("7_apo5x")]
-position = Vector2(608, 320)
-
-[node name="Panel" parent="World/LevelGoal" index="0" unique_id=819949824]
-position = Vector2(1.42, 112)
-scale = Vector2(2.5000002, 3.5)
+offset_left = 608.0
+offset_top = 320.0
+offset_right = 608.0
+offset_bottom = 320.0
 
 [node name="Order" type="Node2D" parent="World/LevelGoal" unique_id=690408388]
 position = Vector2(32, 96)

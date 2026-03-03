@@ -23,3 +23,23 @@ func _ready() -> void:
 
 	if get_parent() is Order:
 		(get_parent() as Order).mash_block_checker_ids.append(self)
+
+var is_satisfied: bool
+var tween_anim: Tween
+
+
+## Called by [MashBlockChecker]
+func anim_satisfied(satisfied: bool) -> void:
+	if satisfied == is_satisfied:
+		return
+	
+	is_satisfied = satisfied
+	
+	if tween_anim:
+		tween_anim.kill()
+		
+	tween_anim = create_tween()
+	
+	sprite.self_modulate = Color(2.0 * Color.WHITE)
+	
+	tween_anim.tween_property(sprite, "self_modulate", Color(Color.WHITE), 1.0)

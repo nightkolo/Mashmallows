@@ -20,7 +20,7 @@
   - [x] Transitions
   - [x] Asset fixes
 - [ ] **Level Goal**
-  - [ ] Precentage completion
+  - [x] Precentage completion
   - [ ] Correct block detect
 
 ## Code Improvements and goals
