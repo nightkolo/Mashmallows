@@ -14,3 +14,4 @@ func _ready() -> void:
 		GameMgr.current_level_number = level_id
 	
 	GameMgr.current_level = self
+	GameMgr.level_entered.emit()

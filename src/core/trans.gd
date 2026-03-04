@@ -19,6 +19,8 @@ func slide_to_next_stage(scene: String) -> void:
 	
 	await anim.animation_finished
 	
+	GameLogic.reset_game_logic()
+	
 	get_tree().change_scene_to_file(scene)
 	
 	anim.play(&"slide_out", -1, 2.4)

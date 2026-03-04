@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+signal level_entered()
 signal game_just_ended()
 signal game_end()
 signal game_reset()
@@ -20,7 +21,7 @@ var current_level_goal: LevelGoal
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("game_reset"):
-		get_tree().reload_current_scene()
+		game_reset.emit()
 
 
 func _ready() -> void:
@@ -43,13 +44,13 @@ func goto_next_level() -> void:
 	if !current_level:
 		return
 	
-	GameLogic.reset_game_logic()
 	
 	var next_lvl_id := current_level.scene_file_path.to_int() + 1
 	var next_lvl_path := Util.LEVEL_FILE_BEGIN + str(next_lvl_id) + Util.LEVEL_FILE_END
 	
 	if ResourceLoader.exists(next_lvl_path):
 		Trans.slide_to_next_stage(next_lvl_path)
+		
 		#get_tree().change_scene_to_file(next_lvl_path)
 	
 	#if next_lvl_id <= GameUtil.NUMBER_OF_BOARDS: 

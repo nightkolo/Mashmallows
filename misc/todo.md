@@ -12,14 +12,13 @@
   - [x] Other levels
 - [x] Promo
   - [x] Fun level
-- [ ] Analyze game logic
-  - [ ] Draw execution structure
+- [x] Analyze game logic
   - [x] Fix race conditions
 - [x] Optimize for prototype showcase
   - [x] Eye movement fix
   - [x] Transitions
   - [x] Asset fixes
-- [ ] **Level Goal**
+- [x] **Level Goal**
   - [x] Precentage completion
   - [x] Correct block detect
 
@@ -44,8 +43,8 @@
   - [x] **Redesign**
 - [ ] **Mini block redesign**
   - [x] Redesign
-  - [ ] Colored
-  - [ ] Greyscaled
+  - [ ] **Colored**
+  - [ ] **Greyscaled**
 - [x] Level Goal star design
   - [x] Unattained
   - [x] Attained
@@ -85,13 +84,14 @@
 - [ ] Objects
   - [ ] Switch/Doors
     - [ ] Copy-paste some old animation code (yeah, I'm lazy)
-- [ ] Game Loop
+- [ ] **Game Loop**
   - [ ] Level Goal
-    - [ ] Order Blocks
+    - [ ] **Order Blocks**
       - [ ] Colored
       - [ ] Uncolored
-    - [ ] Order Star
+    - [ ] **Order Star**
       - [ ] Idle
+      - [ ] Percentage loading
       - [ ] Particles
       - [ ] Attained
   - [ ] Order complete
