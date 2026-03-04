@@ -72,7 +72,7 @@
     - [ ] **Order Star**
       - [x] Idle
       - [x] Percentage loading
-      - [ ] Particles
+      - [x] Particles
       - [x] Animation
       - [ ] Attained Animation
   - [ ] Order complete

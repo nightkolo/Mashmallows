@@ -32,6 +32,12 @@ func _ready() -> void:
 	
 	GameLogic.order_complete.connect(func():
 		star_no_win.self_modulate = Color(Color.WHITE * 4.0)
+		
+		%Particles.emitting = true
+		
+		var tween = create_tween()
+		
+		tween.tween_property(%Particles, "self_modulate", Color(Color.WHITE, 0.0), 0.5).set_delay(0.5)
 		)
 	
 	GameMgr.level_entered.connect(func():
@@ -72,6 +78,10 @@ func update_completion_prec(perc: float) -> void:
 	if perc < _current_order_precent:
 		star_node_2.scale = Vector2(0.6, 1.8)
 	else:
+		for p: CPUParticles2D in [%ParticlesStar, %ParticlesStar2]:
+			if !p.emitting:
+				p.emitting = true
+		
 		prec_grad.gradient.set_offset(1, 0.15)
 		star_node_2.scale = Vector2(1.8, 0.6)
 	
