@@ -5,6 +5,7 @@ class_name Level
 @export var level_id: int = -1
 @export var show_dev_ui: bool = false ## @experimental
 @export var ignore_order: bool = false
+@export var no_progression: bool = false
 
 
 func _ready() -> void:

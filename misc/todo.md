@@ -64,6 +64,19 @@
 
 ### Animation
 
+- [ ] **Game Loop**
+  - [ ] Level Goal
+    - [ ] **Order Blocks**
+      - [ ] Colored
+      - [ ] Uncolored
+    - [ ] **Order Star**
+      - [x] Idle
+      - [x] Percentage loading
+      - [ ] Particles
+      - [ ] Animation
+      - [ ] Attained Animation
+  - [ ] Order complete
+  - [ ] Level start
 - [ ] Blocks
   - [ ] Sleeping
   - [ ] Mashed
@@ -84,18 +97,6 @@
 - [ ] Objects
   - [ ] Switch/Doors
     - [ ] Copy-paste some old animation code (yeah, I'm lazy)
-- [ ] **Game Loop**
-  - [ ] Level Goal
-    - [ ] **Order Blocks**
-      - [ ] Colored
-      - [ ] Uncolored
-    - [ ] **Order Star**
-      - [ ] Idle
-      - [ ] Percentage loading
-      - [ ] Particles
-      - [ ] Attained
-  - [ ] Order complete
-  - [ ] Level start
 - [ ] NPC (WIP)
 
 ## Roadmap

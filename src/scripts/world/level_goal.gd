@@ -29,7 +29,6 @@ func _ready() -> void:
 	
 	GameLogic.order_complete.connect(func():
 		star_no_win.visible = false
-		#star_win.visible = true
 		)
 	
 	GameMgr.level_entered.connect(func():
@@ -44,11 +43,6 @@ var tween_prec: Tween
 
 func update_completion_prec(perc: float) -> void:
 	perc_label.text = str(Util.round_to_dec(perc * 100.0, 2)) + "%"
-	
-	#await get_tree().create_timer(0.1).timeout
-	
-	print(lerpf(0.125, 0.9, perc))
-	#prec_grad.gradient.set_offset(1, lerpf(0.125, 0.9, perc))
 	
 	if tween_prec:
 		tween_prec.kill()

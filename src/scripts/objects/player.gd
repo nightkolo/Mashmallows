@@ -245,12 +245,12 @@ func _state() -> void:
 			block.sprite.scale = Vector2.ONE * 0.5
 
 
-func _animate() -> void:
+func _animate(delta: float) -> void:
 	for block: Mashed in child_blocks:
 		if block:
 			block.sprite_eyes.position = Vector2(
-				minf(12.0, velocity.x / 50.0),
-				minf(12.0, velocity.y / 50.0)
+				move_toward(block.sprite_eyes.position.x, minf(12.0, velocity.x / 50.0), delta * 100.0),
+				move_toward(block.sprite_eyes.position.y, minf(12.0, velocity.y / 50.0), delta * 100.0)
 			) 
 
 
@@ -258,7 +258,7 @@ func _physics_process(delta: float) -> void:
 	if !GameLogic.is_checking_order_match:
 		_move(delta)
 	_state()
-	_animate()
+	_animate(delta)
 
 
 ### Anim

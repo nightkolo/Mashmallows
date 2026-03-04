@@ -44,6 +44,8 @@ func goto_next_level() -> void:
 	if !current_level:
 		return
 	
+	if current_level.no_progression:
+		return
 	
 	var next_lvl_id := current_level.scene_file_path.to_int() + 1
 	var next_lvl_path := Util.LEVEL_FILE_BEGIN + str(next_lvl_id) + Util.LEVEL_FILE_END
