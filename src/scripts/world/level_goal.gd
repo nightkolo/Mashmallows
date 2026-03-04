@@ -21,7 +21,7 @@ var _current_order_precent: float
 
 
 func _ready() -> void:
-	# TODO: Anim function
+	# TODO: Clean-up ready function
 	
 	GameMgr.current_level_goal = self
 	percent_gradient.texture = prec_grad
@@ -71,7 +71,7 @@ func anim_idle(node: Node2D, sprite: Node2D) -> void:
 	tween_b.tween_property(sprite,"rotation", deg_to_rad(mag_rot / 2.0), dur_rot)
 
 
-
+# TODO Clean-up
 func update_completion_prec(perc: float) -> void:
 	perc_label.text = str(Util.round_to_dec(perc * 100.0, 2)) + "%"
 	

@@ -43,8 +43,8 @@
   - [x] **Redesign**
 - [ ] **Mini block redesign**
   - [x] Redesign
-  - [ ] **Colored**
-  - [ ] **Greyscaled**
+  - [x] **Colored**
+  - [x] **Greyscaled**
 - [x] Level Goal star design
   - [x] Unattained
   - [x] Attained
@@ -65,16 +65,16 @@
 ### Animation
 
 - [ ] **Game Loop**
-  - [ ] Level Goal
-    - [ ] **Order Blocks**
-      - [ ] Colored
-      - [ ] Uncolored
-    - [ ] **Order Star**
+  - [x] Level Goal
+    - [x] **Order Blocks**
+      - [x] Colored
+      - [x] Uncolored
+    - [x] **Order Star**
       - [x] Idle
       - [x] Percentage loading
       - [x] Particles
       - [x] Animation
-      - [ ] Attained Animation
+      - [x] Attained Animation
   - [ ] Order complete
   - [ ] Level start
 - [ ] Blocks

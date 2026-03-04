@@ -65,16 +65,27 @@ offset_right = 320.0
 offset_bottom = 352.0
 level = NodePath("../..")
 
+[node name="Shade" parent="World/LevelGoal/Board" parent_id_path=PackedInt32Array(1756025330, 1651127727) index="0" unique_id=894503333]
+position = Vector2(0, 112)
+scale = Vector2(5, 5.5000005)
+
+[node name="LevelGoalBoard" parent="World/LevelGoal/Board" parent_id_path=PackedInt32Array(1756025330, 1651127727) index="1" unique_id=877003082]
+offset_bottom = 448.0
+
 [node name="LevelNumber" parent="World/LevelGoal/Board/LevelGoalBoard/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1756025330, 1835387487) index="0" unique_id=1805443537]
 visible = false
 
+[node name="Star" parent="World/LevelGoal" index="1" unique_id=1640468128]
+position = Vector2(80, 192)
+
 [node name="Order" type="Node2D" parent="World/LevelGoal" unique_id=690408388]
-position = Vector2(32, 96)
+position = Vector2(27, 79)
 script = ExtResource("10_vlcax")
 metadata/_custom_type_script = "uid://blq670fy1uldv"
 
 [node name="MashBlockCheckerID" parent="World/LevelGoal/Order" unique_id=491390326 instance=ExtResource("11_l2gk4")]
 position = Vector2(-64, 0)
+is_mash_type = 1
 
 [node name="MashBlockCheckerID2" parent="World/LevelGoal/Order" unique_id=1601069663 instance=ExtResource("11_l2gk4")]
 position = Vector2(0, 64)
@@ -103,6 +114,7 @@ position = Vector2(480, 432)
 
 [node name="Unmashed3" parent="." unique_id=1970463473 instance=ExtResource("13_kvn8c")]
 position = Vector2(800, 352)
+mash_type = 1
 
 [node name="Unmashed2" parent="." unique_id=1437268704 instance=ExtResource("13_kvn8c")]
 position = Vector2(384, 240)

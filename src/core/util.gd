@@ -3,9 +3,9 @@ class_name Util
 
 enum MashType {
 	WHITE = 0,
-	GOLDEN = 1,
+	STAR = 1,
 	CHOCO = 2,
-	BISCUIT = 3,
+	HEART = 3,
 	PLAYER = 99,
 	CHERRY_BOMB = 100,
 	AIR_CHERRY_BOMB = 101
@@ -30,33 +30,28 @@ static func round_to_dec(num: float, decimals: int) -> float:
 
 
 
-static func get_block_mash_type_texture(type: MashType, build: BuildType) -> Texture2D:
-	var text: Texture2D
+static func get_order_block_texture(type: MashType, build: BuildType, satisfied: bool = false) -> Texture2D:
+	if type == MashType.PLAYER:
+		return preload("res://assets/interface/order/order-player.png")
 	
-	match type:
-		MashType.WHITE:
-			if build != BuildType.RECTANGLE:
-				text = preload("res://assets/interface/order-white-03.png")
-			else:
-				text = preload("res://assets/interface/order-white-1x2-01.png")
-			
-		MashType.GOLDEN:
-			if build != BuildType.RECTANGLE:
-				text = preload("res://assets/interface/order-golden-1x1.png")
-			else:
-				text = preload("res://assets/interface/order-golden-1x2.png")
-		MashType.CHOCO:
-			if build != BuildType.RECTANGLE:
-				text = preload("res://assets/interface/order-choco-1x1.png")
-			else:
-				text = preload("res://assets/interface/order-choco-1x2.png")
-		MashType.BISCUIT:
-			if build != BuildType.RECTANGLE:
-				text = preload("res://assets/interface/order-biscuit-1x1.png")
-			else:
-				text = preload("res://assets/interface/order-biscuit-1x2.png")
-		MashType.PLAYER:
-			text = preload("res://assets/interface/order-player-03.png")
+	var text: Texture2D
+	var l_build: String
+	var l_name := str(MashType.find_key(type)).to_lower()
+	var l_color: String
+	
+	if build != BuildType.RECTANGLE:
+		l_build = "1x1"
+	else:
+		l_build = "1x2"
+	
+	if satisfied:
+		l_color = ""
+	else:
+		l_color = "-grey"
+	
+	var file_name = "res://assets/interface/order/order-" + l_name + "-" + l_build + l_color + ".png"
+	
+	text = load(file_name)
 			
 	return text
 
@@ -71,7 +66,7 @@ static func get_mash_type_texture(type: MashType, build: BuildType) -> Texture2D
 			else:
 				text = preload("res://assets/objects/block-white-01.png")
 			
-		MashType.GOLDEN:
+		MashType.STAR:
 			if build ==	BuildType.RECTANGLE:
 				text = preload("res://assets/objects/block-golden-1x2-01.png")
 			else:
@@ -83,7 +78,7 @@ static func get_mash_type_texture(type: MashType, build: BuildType) -> Texture2D
 			else:
 				text = preload("res://assets/objects/block-choco-01.png")
 			
-		MashType.BISCUIT:
+		MashType.HEART:
 			if build ==	BuildType.RECTANGLE:
 				text = preload("res://assets/objects/block-biscuit-03-1x2.png")
 			else:
@@ -109,13 +104,13 @@ static func get_mash_type_color(type: Util.MashType, build: Util.BuildType) -> C
 		Util.MashType.WHITE:
 			col = Color.WHITE * 1.5
 			
-		Util.MashType.GOLDEN:
+		Util.MashType.STAR:
 			col = Color.YELLOW
 			
 		Util.MashType.CHOCO:
 			col = Color.GRAY
 			
-		Util.MashType.BISCUIT:
+		Util.MashType.HEART:
 			col = Color.DARK_GREEN
 			
 		Util.MashType.PLAYER:
