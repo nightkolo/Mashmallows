@@ -14,7 +14,8 @@ var has_won: bool = false
 var number_of_order_blocks: int
 var completion_percentage: float:
 	set(value):
-		completion_percentage_updated.emit(value)
+		if value != completion_percentage:
+			completion_percentage_updated.emit(value)
 		completion_percentage = value
 
 var order_check_ori_pos: Vector2

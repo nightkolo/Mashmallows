@@ -73,7 +73,7 @@
       - [x] Idle
       - [x] Percentage loading
       - [ ] Particles
-      - [ ] Animation
+      - [x] Animation
       - [ ] Attained Animation
   - [ ] Order complete
   - [ ] Level start

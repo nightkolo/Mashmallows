@@ -81,30 +81,32 @@ horizontal_alignment = 1
 [node name="Star" type="Node2D" parent="." unique_id=1640468128]
 position = Vector2(80, 224)
 
-[node name="NoWin" type="Sprite2D" parent="Star" unique_id=181896781]
+[node name="Star2" type="Node2D" parent="Star" unique_id=863524772]
+
+[node name="NoWin" type="Sprite2D" parent="Star/Star2" unique_id=181896781]
+unique_name_in_owner = true
 clip_children = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_orw8f")
 
-[node name="PercLabel" type="Label" parent="Star" unique_id=1790903418]
-unique_name_in_owner = true
-visible = false
-offset_left = -80.0
-offset_top = -16.0
-offset_right = -37.0
-offset_bottom = 34.0
-text = "0%"
-label_settings = SubResource("LabelSettings_l8bwh")
-
-[node name="PercentGradient" type="Sprite2D" parent="Star" unique_id=1408087934]
+[node name="PercentGradient" type="Sprite2D" parent="Star/Star2" unique_id=1408087934]
 unique_name_in_owner = true
 clip_children = 1
-position = Vector2(3.8146973e-06, 4.7683716e-06)
 scale = Vector2(1.16, 1.1)
 texture = ExtResource("6_802ow")
 
-[node name="Win" type="Sprite2D" parent="Star/PercentGradient" unique_id=1822019438]
+[node name="Win" type="Sprite2D" parent="Star/Star2/PercentGradient" unique_id=1822019438]
 self_modulate = Color(1, 1, 0.24780053, 1)
 position = Vector2(3.0994415e-06, 0.90908957)
 scale = Vector2(0.425, 0.425)
 texture = ExtResource("3_f5ssy")
+
+[node name="PercLabel" type="Label" parent="." unique_id=1790903418]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_top = 208.0
+offset_right = 56.0
+offset_bottom = 258.0
+text = "0%"
+label_settings = SubResource("LabelSettings_l8bwh")
