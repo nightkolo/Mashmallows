@@ -53,6 +53,10 @@ func is_on_ground() -> bool: # -> O(1)
 			return true
 	return false
 
+
+
+##### TODO Animation commit
+
 var explosion_fx: PackedScene = preload("res://scenes/effects/cherry_bomb_exposion_effect.tscn")
 
 func anim_explode(at_pos: Vector2) -> void:
@@ -62,12 +66,23 @@ func anim_explode(at_pos: Vector2) -> void:
 		ex.rotation = PI * 0.5
 	elif at_pos == Vector2.LEFT:
 		ex.rotation = -PI * 0.5
+	
+	# Anim start
+	var tween := create_tween()
+	tween.tween_property(sprite, "scale", Vector2.ONE * 0.25, Util.CHERRY_BOMB_WAITTIME)
+	
+	await get_tree().create_timer(Util.CHERRY_BOMB_WAITTIME).timeout
 		
 	print(at_pos)
 	
 	ex.position = global_position + (-at_pos * Util.BLOCK_SIZE * 0.5)
+	ex.pos_at = at_pos
 	
 	GameMgr.current_level.add_child(ex)
+
+#####
+
+
 
 
 func _ready() -> void:

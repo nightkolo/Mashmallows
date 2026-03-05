@@ -37,6 +37,14 @@ window/size/window_width_override=1920
 window/size/window_height_override=1200
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://scenes/": "yellow",
+"res://scripts/": "purple"
+}
+
 [gui]
 
 theme/custom_font="uid://dxuiw6kkd637h"
@@ -101,6 +109,7 @@ move_down={
 2d_physics/layer_5="Mashed"
 2d_physics/layer_6="Switch"
 2d_physics/layer_7="Door"
+2d_physics/layer_8="Particles"
 
 [physics]
 

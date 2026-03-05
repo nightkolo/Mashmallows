@@ -32,6 +32,7 @@ var child_blocks: Array[Mashed] # Stack data structure
 var new_child_blocks: Array[Mashed] # Stack data structure
 
 var is_landed: bool
+var is_exploding: bool
 
 const CHERRY_BOMB_STRENGTH = 1600.0
 
@@ -130,7 +131,7 @@ func unmash() -> void: # -> O(1)
 
 
 func _handle_cherry_bomb(old_mashed: Mashed) -> void:
-	child_blocks.pop_back()
+	is_exploding = true
 	cherry_bomb_activated.emit()
 	
 	var push_to: Vector2 = Vector2.ZERO
@@ -142,12 +143,18 @@ func _handle_cherry_bomb(old_mashed: Mashed) -> void:
 	
 	old_mashed.cherry_bomb_activated.emit(push_to)
 	
+	await get_tree().create_timer(Util.CHERRY_BOMB_WAITTIME).timeout
+	
+	child_blocks.pop_back()
+	
 	if push_to.y > push_to.x && velocity.y > 0:
 		velocity.y = 0.0
 	
 	velocity += -push_to * CHERRY_BOMB_STRENGTH
 	
 	old_mashed.queue_free()
+	
+	is_exploding = false
 
 
 func is_being_flown() -> bool:
@@ -159,6 +166,9 @@ func can_perform_mash() -> bool:
 
 
 func can_mash() -> bool:
+	if is_exploding:
+		return false
+	
 	for block: Mashed in child_blocks:
 		if block.block_detect.is_colliding():
 			return true
@@ -166,7 +176,7 @@ func can_mash() -> bool:
 	
 		
 func can_unmash() -> bool:
-	return child_blocks.size() > 1
+	return child_blocks.size() > 1 && !is_exploding
 
 
 func return_position() -> void:
@@ -176,6 +186,9 @@ func return_position() -> void:
 
 
 func jump() -> void:
+	if is_exploding:
+		return
+	
 	has_jumpped.emit()
 	
 	velocity.y = -jump_height

@@ -80,10 +80,10 @@
 - [ ] Cherry bomb
   - [ ] Attached
     - [ ] Particles
-  - [ ] Exploding
+  - [x] Exploding
     - [x] Explodsion cloud
-    - [ ] Dbres flying
-    - [ ] Cherry bomb scale (seperate assets)
+    - [x] Dbres flying
+    - [x] Cherry bomb scale (seperate assets)
   - [ ] Environment animation
     - [ ] Terrain traces
     - [ ] Level goal spin
@@ -91,6 +91,7 @@
   - [ ] Player
     - [ ] Ghost effect
   - [ ] Screenshake
+  - [ ] Do I need to add more?
 - [ ] Blocks
   - [ ] Sleeping
   - [ ] Mashed

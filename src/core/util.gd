@@ -21,6 +21,8 @@ const ORDER_COMPLETE_WAIT_TIME = 1.0
 const LEVEL_FILE_BEGIN = "res://scenes/levels/level_"
 const LEVEL_FILE_END = ".tscn"
 
+const CHERRY_BOMB_WAITTIME = 0.125
+
 const BLOCK_SIZE = 64.0
 const GRAVITY_MULT = 4.0
 
