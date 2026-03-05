@@ -41,7 +41,7 @@
 - [x] Level Goal panel design
   - [x] NinePatchRect
   - [x] **Redesign**
-- [ ] **Mini block redesign**
+- [x] **Mini block redesign**
   - [x] Redesign
   - [x] **Colored**
   - [x] **Greyscaled**
@@ -77,6 +77,20 @@
       - [x] Attained Animation
   - [ ] Order complete
   - [ ] Level start
+- [ ] Cherry bomb
+  - [ ] Attached
+    - [ ] Particles
+  - [ ] Exploding
+    - [x] Explodsion cloud
+    - [ ] Dbres flying
+    - [ ] Cherry bomb scale (seperate assets)
+  - [ ] Environment animation
+    - [ ] Terrain traces
+    - [ ] Level goal spin
+    - [ ] BG effect
+  - [ ] Player
+    - [ ] Ghost effect
+  - [ ] Screenshake
 - [ ] Blocks
   - [ ] Sleeping
   - [ ] Mashed
@@ -89,11 +103,6 @@
     - [ ] Idle animation
     - [ ] Pressing down
     - [ ] Hugging walls
-  - [ ] Cherry bomb
-    - [ ] Attached
-    - [ ] Exploding
-    - [ ] Environment animation
-    - [ ] Screenshake
 - [ ] Objects
   - [ ] Switch/Doors
     - [ ] Copy-paste some old animation code (yeah, I'm lazy)

@@ -2,6 +2,7 @@ class_name Mashed
 extends CollisionShape2D
 
 signal mashable_state_changed(can_mash: bool)
+signal cherry_bomb_activated(at_pos: Vector2)
 
 @export var mash_type: Util.MashType
 @export var build_type: Util.BuildType
@@ -52,12 +53,29 @@ func is_on_ground() -> bool: # -> O(1)
 			return true
 	return false
 
+var explosion_fx: PackedScene = preload("res://scenes/effects/cherry_bomb_exposion_effect.tscn")
+
+func anim_explode(at_pos: Vector2) -> void:
+	var ex: ExplosionFX = explosion_fx.instantiate()
+	
+	if at_pos == Vector2.RIGHT:
+		ex.rotation = PI * 0.5
+	elif at_pos == Vector2.LEFT:
+		ex.rotation = -PI * 0.5
+		
+	print(at_pos)
+	
+	ex.position = global_position + (-at_pos * Util.BLOCK_SIZE * 0.5)
+	
+	GameMgr.current_level.add_child(ex)
+
 
 func _ready() -> void:
 	_original_pos = position
 	sprite_original_pos_y = sprite_node.position.y
 	
 	mashable_state_changed.connect(anim_highlight)
+	cherry_bomb_activated.connect(anim_explode)
 	
 	if get_parent() is Player:
 		parent_player = get_parent()
@@ -164,6 +182,10 @@ func get_mashed_object(type: Util.BuildType) -> Mashed:
 			return mashed_object_1x2.instantiate()
 		_:
 			return null
+
+
+
+
 
 ## Anim
 var _tween_light: Tween

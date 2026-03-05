@@ -29,33 +29,22 @@ static func round_to_dec(num: float, decimals: int) -> float:
 	return roundf(num * pow(10.0, decimals)) / pow(10.0, decimals)
 
 
-
 static func get_order_block_texture(type: MashType, build: BuildType, satisfied: bool = false) -> Texture2D:
 	if type == MashType.PLAYER:
 		return preload("res://assets/interface/order/order-player.png")
-	
-	var text: Texture2D
-	var l_build: String
+
 	var l_name := str(MashType.find_key(type)).to_lower()
-	var l_color: String
-	
-	if build != BuildType.RECTANGLE:
-		l_build = "1x1"
-	else:
-		l_build = "1x2"
-	
-	if satisfied:
-		l_color = ""
-	else:
-		l_color = "-grey"
-	
-	var file_name = "res://assets/interface/order/order-" + l_name + "-" + l_build + l_color + ".png"
-	
-	text = load(file_name)
-			
-	return text
+	var build_str := "1x2" if build == BuildType.RECTANGLE else "1x1"
+	var color_suffix := "" if satisfied else "-grey"
+
+	var path := "res://assets/interface/order/order-%s-%s%s.png" % [
+		l_name, build_str, color_suffix
+	]
+
+	return load(path)
 
 
+# TODO Refactor file system and function
 static func get_mash_type_texture(type: MashType, build: BuildType) -> Texture2D:
 	var text: Texture2D
 	

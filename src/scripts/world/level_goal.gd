@@ -75,15 +75,6 @@ func anim_idle(node: Node2D, sprite: Node2D) -> void:
 func update_completion_prec(perc: float) -> void:
 	perc_label.text = str(Util.round_to_dec(perc * 100.0, 2)) + "%"
 	
-	if perc < _current_order_precent:
-		star_node_2.scale = Vector2(0.6, 1.8)
-	else:
-		for p: CPUParticles2D in [%ParticlesStar, %ParticlesStar2]:
-			if !p.emitting:
-				p.emitting = true
-		
-		prec_grad.gradient.set_offset(1, 0.15)
-		star_node_2.scale = Vector2(1.8, 0.6)
 	
 	_current_order_precent = perc
 	
@@ -91,7 +82,19 @@ func update_completion_prec(perc: float) -> void:
 		tween_prec.kill()
 	
 	tween_prec = create_tween().set_parallel(true)
-	tween_prec.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween_prec.set_ease(Tween.EASE_OUT)
+	
+	if perc < _current_order_precent:
+		star_node_2.scale = Vector2(0.6, 1.8)
+		tween_prec.set_trans(Tween.TRANS_LINEAR)
+	else:
+		for p: CPUParticles2D in [%ParticlesStar, %ParticlesStar2]:
+			if !p.emitting:
+				p.emitting = true
+		
+		tween_prec.set_trans(Tween.TRANS_BACK)
+		prec_grad.gradient.set_offset(1, 0.15)
+		star_node_2.scale = Vector2(1.8, 0.6)
 	
 	tween_prec.tween_property(prec_grad.gradient,
 	"offsets",

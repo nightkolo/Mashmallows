@@ -140,6 +140,8 @@ func _handle_cherry_bomb(old_mashed: Mashed) -> void:
 		if ray.get_collider() is Player:
 			push_to = -ray.target_position.sign()
 	
+	old_mashed.cherry_bomb_activated.emit(push_to)
+	
 	if push_to.y > push_to.x && velocity.y > 0:
 		velocity.y = 0.0
 	
