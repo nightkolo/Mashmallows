@@ -8,7 +8,7 @@ class_name World
 	set(value):
 		await ready
 		bg_color = value
-		$TiledSprite2D.self_modulate = value
+		#$TiledSprite2D.self_modulate = value
 @onready var bg_node: Node2D = $BG
 
 
@@ -28,4 +28,4 @@ class_name World
 func _ready() -> void:
 	bg_node.modulate = Color(Color.WHITE, 1.0)
 	
-	bg_sprite.self_modulate = bg_color
+	#bg_sprite.self_modulate = bg_color

@@ -14,6 +14,7 @@ var current_level: Level
 var current_player: Player
 var current_order_checker: OrderChecker
 var current_level_goal: LevelGoal
+var current_camera: Cam
 
 ## Level Begin
 # Variables self-assigned

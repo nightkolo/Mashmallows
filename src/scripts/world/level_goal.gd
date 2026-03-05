@@ -78,16 +78,16 @@ func anim_idle(node: Node2D, sprite: Node2D) -> void:
 	var mag_rot := 10.0
 	
 	var tween = create_tween().set_loops()
-	var tween_b = create_tween().set_loops()
+#	var tween_b = create_tween().set_loops()
 	
 	tween.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	tween_b.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	#tween_b.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	
 	tween.tween_property(node,"position:y", -mag_hover ,dur_hover).as_relative()
 	tween.tween_property(node,"position:y", mag_hover ,dur_hover).as_relative()
 	
-	tween_b.tween_property(sprite,"rotation", deg_to_rad(-mag_rot / 2.0), dur_rot)
-	tween_b.tween_property(sprite,"rotation", deg_to_rad(mag_rot / 2.0), dur_rot)
+	#tween_b.tween_property(sprite,"rotation", deg_to_rad(-mag_rot / 2.0), dur_rot)
+	#tween_b.tween_property(sprite,"rotation", deg_to_rad(mag_rot / 2.0), dur_rot)
 
 
 # TODO Clean-up

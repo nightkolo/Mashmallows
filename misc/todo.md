@@ -89,9 +89,9 @@
     - [x] Level goal spin
     - [ ] BG effect
     - [ ] Game Freeze
+    - [x] Screenshake
   - [ ] Player
     - [ ] Ghost effect
-  - [ ] Screenshake
   - [ ] Do I need to add more?
 - [ ] Blocks
   - [ ] Sleeping
