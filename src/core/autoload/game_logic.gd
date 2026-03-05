@@ -6,6 +6,8 @@ signal player_unmashed()
 signal order_checked()
 signal order_complete()
 
+signal cherry_bomb_exploded()
+
 signal completion_percentage_updated(perc: float)
 
 var is_checking_order_match: bool = false

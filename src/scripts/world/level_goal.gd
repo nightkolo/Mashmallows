@@ -7,6 +7,8 @@ class_name LevelGoal
 
 @onready var level_number_label: Label = %LevelNumber
 
+#@onready var board: Control = %Board
+
 @onready var star_node_2: Node2D = $Star/Star2
 @onready var star_node: Node2D = $Star
 @onready var star_no_win: Sprite2D = %NoWin
@@ -18,6 +20,21 @@ class_name LevelGoal
 var prec_grad: GradientTexture2D = preload("res://resources/level_goal/order_star_gradient_texture_2d.tres")
 
 var _current_order_precent: float
+var _tween: Tween
+
+func anim_wobble() -> void:
+	var dur = 5.0
+	
+	rotation = 0.0
+	
+	if _tween:
+		_tween.kill()
+		
+	_tween = create_tween()
+	_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	
+	_tween.tween_property(self, "rotation", PI / 28.0, dur / 20.0)
+	_tween.tween_property(self, "rotation", 0.0, dur).set_trans(Tween.TRANS_ELASTIC)
 
 
 func _ready() -> void:
@@ -29,6 +46,8 @@ func _ready() -> void:
 	level_number_label.position = Vector2(-level_number_label.size.x / 2, 16.0)
 	
 	GameLogic.completion_percentage_updated.connect(update_completion_prec)
+	
+	GameLogic.cherry_bomb_exploded.connect(anim_wobble)
 	
 	GameLogic.order_complete.connect(func():
 		star_no_win.self_modulate = Color(Color.WHITE * 4.0)

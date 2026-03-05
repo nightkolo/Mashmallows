@@ -44,6 +44,7 @@ anchors_preset = 0
 script = ExtResource("1_icga6")
 
 [node name="Board" type="Control" parent="." unique_id=1651127727]
+unique_name_in_owner = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

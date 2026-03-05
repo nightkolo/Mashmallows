@@ -85,9 +85,10 @@
     - [x] Dbres flying
     - [x] Cherry bomb scale (seperate assets)
   - [ ] Environment animation
-    - [ ] Terrain traces
-    - [ ] Level goal spin
+    - [x] Terrain traces
+    - [x] Level goal spin
     - [ ] BG effect
+    - [ ] Game Freeze
   - [ ] Player
     - [ ] Ghost effect
   - [ ] Screenshake

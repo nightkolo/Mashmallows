@@ -12,17 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dm2w7x53dr4sx" path="res://scenes/world/mash_block_checker_id.tscn" id="10_3pogj"]
 [ext_resource type="PackedScene" uid="uid://chans4uy22002" path="res://scenes/objects/player.tscn" id="11_3qaki"]
 [ext_resource type="PackedScene" uid="uid://bn6154eu6l5ce" path="res://scenes/objects/block_unmashed_1x1.tscn" id="12_ioxlu"]
-[ext_resource type="Script" uid="uid://dtkfbe7igpwhy" path="res://scripts/effects/terrain_explosion_mark.gd" id="14_i6sx7"]
-
-[sub_resource type="Gradient" id="Gradient_i6sx7"]
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(0, 0, 0, 0.7411765, 0, 0, 0, 0.49803922, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3luen"]
-gradient = SubResource("Gradient_i6sx7")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1.15, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4iir"]
 
@@ -34,14 +23,6 @@ metadata/_custom_type_script = "uid://5fpkm17tw6kn"
 [node name="Cam" type="Camera2D" parent="." unique_id=1604178255]
 anchor_mode = 0
 script = ExtResource("2_rxvsw")
-
-[node name="TerrainExplosionMark" type="PointLight2D" parent="." unique_id=712310845]
-position = Vector2(608, 560.00006)
-scale = Vector2(5, 5)
-blend_mode = 2
-range_item_cull_mask = 2
-texture = SubResource("GradientTexture2D_3luen")
-script = ExtResource("14_i6sx7")
 
 [node name="World" parent="." unique_id=1317599791 instance=ExtResource("3_tu7dj")]
 

@@ -69,7 +69,7 @@ func anim_explode(at_pos: Vector2) -> void:
 	
 	# Anim start
 	var tween := create_tween()
-	tween.tween_property(sprite, "scale", Vector2.ONE * 0.25, Util.CHERRY_BOMB_WAITTIME)
+	tween.tween_property(sprite, "scale", Vector2.ONE * 0.125, Util.CHERRY_BOMB_WAITTIME)
 	
 	await get_tree().create_timer(Util.CHERRY_BOMB_WAITTIME).timeout
 		

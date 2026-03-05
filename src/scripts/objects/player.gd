@@ -146,6 +146,7 @@ func _handle_cherry_bomb(old_mashed: Mashed) -> void:
 	await get_tree().create_timer(Util.CHERRY_BOMB_WAITTIME).timeout
 	
 	child_blocks.pop_back()
+	GameLogic.cherry_bomb_exploded.emit()
 	
 	if push_to.y > push_to.x && velocity.y > 0:
 		velocity.y = 0.0
@@ -153,6 +154,7 @@ func _handle_cherry_bomb(old_mashed: Mashed) -> void:
 	velocity += -push_to * CHERRY_BOMB_STRENGTH
 	
 	old_mashed.queue_free()
+	
 	
 	is_exploding = false
 
