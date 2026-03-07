@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ballqtw1kb6fw"]
+
+[ext_resource type="Script" uid="uid://5fpkm17tw6kn" path="res://core/level.gd" id="1_w2i51"]
+[ext_resource type="Script" uid="uid://h0t65tftxt3e" path="res://scripts/game/game_cam.gd" id="2_xsrpe"]
+[ext_resource type="PackedScene" uid="uid://bl0u0p0mf5g16" path="res://scenes/world/level_world.tscn" id="3_0kxia"]
+[ext_resource type="Script" uid="uid://cyw0ns0pn6gd5" path="res://scripts/world/tile_map.gd" id="4_5umh1"]
+[ext_resource type="TileSet" uid="uid://cuppb1uimxgtj" path="res://resources/world_tileset_01.tres" id="5_v7ucw"]
+[ext_resource type="Texture2D" uid="uid://cidheaemokk" path="res://assets/tilemap/ground-outline-mask.png" id="6_vsqe1"]
+[ext_resource type="PackedScene" uid="uid://cb0na4nijl8sd" path="res://scenes/world/level_goal.tscn" id="7_kk2ik"]
+[ext_resource type="Script" uid="uid://blq670fy1uldv" path="res://scripts/game/order.gd" id="8_6to6e"]
+[ext_resource type="PackedScene" uid="uid://chans4uy22002" path="res://scenes/objects/player.tscn" id="9_40qa3"]
+
+[node name="Level" type="Node2D" unique_id=1688286197]
+script = ExtResource("1_w2i51")
+metadata/_custom_type_script = "uid://5fpkm17tw6kn"
+
+[node name="Cam" type="Camera2D" parent="." unique_id=1604178255]
+anchor_mode = 0
+script = ExtResource("2_xsrpe")
+
+[node name="World" parent="." unique_id=1317599791 instance=ExtResource("3_0kxia")]
+
+[node name="TileMaps" type="Node2D" parent="World" unique_id=1237230088]
+script = ExtResource("4_5umh1")
+metadata/_custom_type_script = "uid://cyw0ns0pn6gd5"
+
+[node name="Ground" type="TileMapLayer" parent="World/TileMaps" unique_id=462480928]
+tile_set = ExtResource("5_v7ucw")
+
+[node name="Foreground" type="TileMapLayer" parent="World/TileMaps" unique_id=535445719]
+tile_set = ExtResource("5_v7ucw")
+
+[node name="Sprite2D" type="Sprite2D" parent="World/TileMaps" unique_id=1770064885]
+clip_children = 1
+texture = ExtResource("6_vsqe1")
+centered = false
+
+[node name="Outline" type="TileMapLayer" parent="World/TileMaps/Sprite2D" unique_id=1563137053]
+tile_set = ExtResource("5_v7ucw")
+
+[node name="LevelGoal" parent="World" unique_id=1756025330 instance=ExtResource("7_kk2ik")]
+
+[node name="Order" type="Node2D" parent="World/LevelGoal" unique_id=690408388]
+script = ExtResource("8_6to6e")
+metadata/_custom_type_script = "uid://blq670fy1uldv"
+
+[node name="Player" parent="." unique_id=1691389058 instance=ExtResource("9_40qa3")]

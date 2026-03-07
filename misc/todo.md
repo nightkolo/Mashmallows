@@ -122,7 +122,6 @@
   - [ ] Pause Menu
 - [ ] Intro Sequence
 
-
 ## 2-20 (Legacy)
 
 ### Assets and design

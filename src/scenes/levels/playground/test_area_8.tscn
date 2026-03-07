@@ -29,7 +29,7 @@ script = ExtResource("2_rxvsw")
 
 [node name="TiledSprite2D" parent="World" index="0" unique_id=1078230963]
 self_modulate = Color(1, 0.58383155, 1, 1)
-region_rect = Rect2(102930.43, 178232.62, 3200, 2000)
+region_rect = Rect2(5242.8613, 9080.957, 3200, 2000)
 
 [node name="TileMaps" type="Node2D" parent="World" unique_id=1237230088]
 script = ExtResource("4_q02f7")

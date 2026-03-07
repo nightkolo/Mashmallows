@@ -143,7 +143,10 @@ func _handle_cherry_bomb(old_mashed: Mashed) -> void:
 	
 	old_mashed.cherry_bomb_activated.emit(push_to)
 	
-	await get_tree().create_timer(Util.CHERRY_BOMB_WAITTIME).timeout
+	var time := Util.CHERRY_BOMB_WAITTIME if old_mashed.mash_type == Util.MashType.CHERRY_BOMB else 0.0
+		
+	
+	await get_tree().create_timer(time).timeout
 	
 	child_blocks.pop_back()
 	GameLogic.cherry_bomb_exploded.emit()

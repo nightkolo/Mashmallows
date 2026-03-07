@@ -7,7 +7,7 @@ func _ready():
 	GameMgr.current_camera = self
 	
 	GameLogic.cherry_bomb_exploded.connect(func():
-		shake(11.0, 5.0)
+		shake(16.0, 5.0)
 		)
 
 

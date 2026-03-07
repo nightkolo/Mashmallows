@@ -41,30 +41,35 @@ centered = false
 tile_set = ExtResource("3_qc71g")
 
 [node name="LevelGoal" parent="World" unique_id=1756025330 instance=ExtResource("6_e18e5")]
-position = Vector2(192, 416)
+offset_left = 192.0
+offset_top = 416.0
+offset_right = 192.0
+offset_bottom = 416.0
 
-[node name="Panel" parent="World/LevelGoal" index="0" unique_id=819949824]
-position = Vector2(0, 176)
-scale = Vector2(3, 5.5)
+[node name="LevelGoalBoard" parent="World/LevelGoal/Board" parent_id_path=PackedInt32Array(1756025330, 1651127727) index="1" unique_id=877003082]
+offset_bottom = 704.0
 
-[node name="Order" type="Node2D" parent="World" unique_id=1570259812]
-position = Vector2(192, 512)
+[node name="Star" parent="World/LevelGoal" index="1" unique_id=1640468128]
+position = Vector2(64, 320)
+
+[node name="Order" type="Node2D" parent="World/LevelGoal" unique_id=1570259812]
+position = Vector2(0, 96)
 script = ExtResource("7_kydov")
 metadata/_custom_type_script = "uid://blq670fy1uldv"
 
-[node name="MashBlockCheckerID" parent="World/Order" unique_id=491390326 instance=ExtResource("8_uwlxl")]
+[node name="MashBlockCheckerID" parent="World/LevelGoal/Order" unique_id=491390326 instance=ExtResource("8_uwlxl")]
 is_mash_type = 99
 
-[node name="MashBlockCheckerID2" parent="World/Order" unique_id=1670306782 instance=ExtResource("8_uwlxl")]
+[node name="MashBlockCheckerID2" parent="World/LevelGoal/Order" unique_id=1670306782 instance=ExtResource("8_uwlxl")]
 position = Vector2(0, 96)
 is_mash_type = 1
 is_build_type = 1
 
-[node name="MashBlockCheckerID3" parent="World/Order" unique_id=1363934270 instance=ExtResource("8_uwlxl")]
+[node name="MashBlockCheckerID3" parent="World/LevelGoal/Order" unique_id=1363934270 instance=ExtResource("8_uwlxl")]
 position = Vector2(0, 192)
 is_mash_type = 1
 
-[node name="MashBlockCheckerID4" parent="World/Order" unique_id=985498926 instance=ExtResource("8_uwlxl")]
+[node name="MashBlockCheckerID4" parent="World/LevelGoal/Order" unique_id=985498926 instance=ExtResource("8_uwlxl")]
 position = Vector2(0, 256)
 is_mash_type = 2
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r2v2sumqwh3c"
-path="res://.godot/imported/order-choco-1x2-grey.png-e9a3a4a4bf6691feeccfc15ad1f51c5c.ctex"
+uid="uid://c7e5882unllk"
+path="res://.godot/imported/order-player.png-79504258c46a9ed0e66572e7f175c898.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interface/order/order-choco-1x2-grey.png"
-dest_files=["res://.godot/imported/order-choco-1x2-grey.png-e9a3a4a4bf6691feeccfc15ad1f51c5c.ctex"]
+source_file="res://assets/interface/order-player.png"
+dest_files=["res://.godot/imported/order-player.png-79504258c46a9ed0e66572e7f175c898.ctex"]
 
 [params]
 

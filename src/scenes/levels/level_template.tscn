@@ -45,3 +45,5 @@ script = ExtResource("8_j81xe")
 metadata/_custom_type_script = "uid://blq670fy1uldv"
 
 [node name="Player" parent="." unique_id=1691389058 instance=ExtResource("9_qvykx")]
+
+[editable path="World/LevelGoal"]

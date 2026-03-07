@@ -67,11 +67,12 @@ func anim_explode(at_pos: Vector2) -> void:
 	elif at_pos == Vector2.LEFT:
 		ex.rotation = -PI * 0.5
 	
-	# Anim start
-	var tween := create_tween()
-	tween.tween_property(sprite, "scale", Vector2.ONE * 0.125, Util.CHERRY_BOMB_WAITTIME)
-	
-	await get_tree().create_timer(Util.CHERRY_BOMB_WAITTIME).timeout
+	if mash_type == Util.MashType.CHERRY_BOMB:
+		# Anim start
+		var tween := create_tween()
+		tween.tween_property(sprite, "scale", Vector2.ONE * 0.125, Util.CHERRY_BOMB_WAITTIME)
+		
+		await get_tree().create_timer(Util.CHERRY_BOMB_WAITTIME).timeout
 		
 	print(at_pos)
 	
