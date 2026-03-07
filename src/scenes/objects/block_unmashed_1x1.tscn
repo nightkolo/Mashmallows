@@ -9,10 +9,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4m1b3"]
 size = Vector2(70, 70)
 
-[node name="Unmashed" type="RigidBody2D" unique_id=1096808338]
+[node name="Unmashed" type="CharacterBody2D" unique_id=1597136109]
 collision_layer = 9
-lock_rotation = true
 script = ExtResource("1_n48d1")
+metadata/_custom_type_script = "uid://madv71ijp5i3"
 
 [node name="SpriteNode" type="Node2D" parent="." unique_id=277771888]
 

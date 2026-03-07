@@ -8,8 +8,6 @@ var mash_block_checker: PackedScene = preload("res://scenes/game/mash_block_chec
 
 
 func _ready() -> void:
-	scale = Vector2.ONE * 0.75
-	
 	await get_tree().create_timer(0.1).timeout
 	
 	var oc: OrderChecker = order_checker.instantiate()

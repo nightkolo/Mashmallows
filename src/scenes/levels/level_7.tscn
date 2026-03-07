@@ -49,10 +49,14 @@ tile_set = ExtResource("5_ymk4h")
 position = Vector2(576, 192)
 
 [node name="LevelGoal" parent="World" unique_id=1756025330 instance=ExtResource("7_dfn7m")]
-position = Vector2(864, 64)
+offset_left = 864.0
+offset_top = 64.0
+offset_right = 864.0
+offset_bottom = 64.0
 
 [node name="Order" type="Node2D" parent="World/LevelGoal" unique_id=690408388]
 position = Vector2(0, 128)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("8_8rm7r")
 metadata/_custom_type_script = "uid://blq670fy1uldv"
 

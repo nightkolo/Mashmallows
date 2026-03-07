@@ -49,6 +49,8 @@ func _ready() -> void:
 	
 	GameLogic.cherry_bomb_exploded.connect(anim_wobble)
 	
+	
+	
 	GameLogic.order_complete.connect(func():
 		star_no_win.self_modulate = Color(Color.WHITE * 4.0)
 		
