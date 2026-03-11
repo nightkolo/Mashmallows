@@ -6,7 +6,7 @@
 
 - [ ] World 1 beta
   - [x] 1-6
-  - [ ] 1-8
+  - [x] 1-8
   - [ ] 1-9
   - [ ] 1-10
   - [x] Other levels

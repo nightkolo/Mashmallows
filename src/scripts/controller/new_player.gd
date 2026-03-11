@@ -179,35 +179,160 @@ func jump() -> void:
 	velocity.y = -jump_height
 
 
-func _move(delta: float) -> void:
-	var was_on_floor: bool = is_on_floor()
-	
-	#print(velocity)
-	
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+## Global player variables
+## input_direction
+## was_on_floor
+## last_velocity_y
+## 
+## Player code
+## var on_floor := is_on_floor()
+## input_direction = Input.get_axis("move_left", "move_right")
+## What is handled by the player
+
+## Player code
+## I'll let coyotoe time be global
+## 
+var was_on_floor: bool
+
+func _new_move(delta: float) -> void:
+	was_on_floor = is_on_floor()
 	
 	_last_velocity_y = velocity.y
 	
 	move_and_slide()
-
+	
 	if was_on_floor && !is_on_floor() && velocity.y >= 0.0:
 		coyote_jump_timer.start()
 
+
+func _move(delta: float) -> void:
+	## RunState
+	var l_was_on_floor: bool = is_on_floor()
+	##
+	
+	if not is_on_floor():
+	## AirState
+		velocity += get_gravity() * delta
+	##
+	
+	## AirState, for ground landing strength check
+	_last_velocity_y = velocity.y
+	##
+	
+	## All states
+	move_and_slide()
+	##
+	
+	## AirState, from the RunState, l_was_on_floor is passed
+	## New check: if l_was_on_floor && velocity.y >= 0.0:
+	
+	if l_was_on_floor && !is_on_floor() && velocity.y >= 0.0:
+		coyote_jump_timer.start()
+	##
+	
+	
 	# Variable jump height, coyote jump, and jump buffer
+	## All states
 	if Input.is_action_just_pressed("move_jump"):
+		## AirState, for coyote jumping
 		if coyote_jump_timer.time_left > 0.0:
 			jump()
+		##
 		else:
+			## All states
 			jump_window_timer.start()
-		
+			## 
+	##
+	
+	
 	# If the player in on the floor and within the jump window/jump buffer timer, then jump
 	if is_on_floor() && !jump_window_timer.is_stopped():
-		jump()
+	## Idle and Run states
 	
+	## New check: if !jump_window_timer.is_stopped():
+	
+		jump()
+	##
+	
+	## AirState
 	if Input.is_action_just_released("move_jump") and velocity.y < 0.0:
 		velocity.y = velocity.y / 2.0
+	##
 	
+	## Horizontal movement
+	
+	## LLM-generated, template, PoC code
+	
+	## IdleState
+	
+	#var dir := player.input_direction
+#
+	#if dir != 0:
+		#player.velocity.x = move_toward(
+			#player.velocity.x,
+			#dir * player.speed,
+			#player.acceleration * delta
+		#)
+#
+		#state_machine.change_state(run_state)
+	#else:
+		#player.velocity.x = move_toward(
+			#player.velocity.x,
+			#0,
+			#player.deceleration * delta
+		#)
+	
+	## RunState
+	
+	#var dir := player.input_direction
+#
+	#if dir == 0:
+		#state_machine.change_state("IdleState")
+		#return
+#
+	#player.velocity.x = move_toward(
+		#player.velocity.x,
+		#dir * player.speed,
+		#player.acceleration * delta
+	#)
+#
+	## turning brake
+	#if dir < 0 and player.velocity.x > 0:
+		#player.velocity.x = move_toward(
+			#player.velocity.x,
+			#0,
+			#player.stop_deceleration * delta
+		#)
+#
+	#if dir > 0 and player.velocity.x < 0:
+		#player.velocity.x = move_toward(
+			#player.velocity.x,
+			#0,
+			#player.stop_deceleration * delta
+		#)
+	
+	## AirState
+	
+	#var dir := player.input_direction
+#
+	#if dir != 0:
+		#player.velocity.x = move_toward(
+			#player.velocity.x,
+			#dir * player.speed,
+			#player.acceleration * delta
+		#)
+	#else:
+		#if player.is_being_flown():
+			#player.velocity.x = move_toward(
+				#player.velocity.x,
+				#0,
+				#player.air_deceleration * delta
+			#)
+#
+			#if player.is_on_floor():
+				#player.cherry_bomb_air_timer.stop()
+	
+	## All States
 	# Horizontal movement with acceleration
 	input_direction = Input.get_axis("move_left", "move_right")
 
@@ -228,8 +353,11 @@ func _move(delta: float) -> void:
 
 	if input_direction > 0 && velocity.x < 0.0:
 		velocity.x = move_toward(velocity.x, 0.0, stop_deceleration * delta)
+		
+	##
 
 
+## Player code
 func _state() -> void:
 	if !is_landed && is_on_floor():
 		has_landed.emit(abs(_last_velocity_y / 100.0))
@@ -243,8 +371,10 @@ func _state() -> void:
 		
 		for block: Mashed in child_blocks:
 			block.sprite.scale = Vector2.ONE * 0.5
+## 
 
 
+## Player code
 func _animate() -> void:
 	for block: Mashed in child_blocks:
 		if block:
@@ -252,7 +382,7 @@ func _animate() -> void:
 				minf(12.0, velocity.x / 50.0),
 				minf(12.0, velocity.y / 50.0)
 			) 
-
+##
 
 func _physics_process(delta: float) -> void:
 	if !GameLogic.is_checking_order_match:

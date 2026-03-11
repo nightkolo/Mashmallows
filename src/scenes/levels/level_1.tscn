@@ -23,6 +23,7 @@ gradient = SubResource("Gradient_iav0o")
 [node name="Level" type="Node2D" unique_id=1688286197]
 script = ExtResource("1_7cx1p")
 level_id = 1
+show_dev_ui = true
 metadata/_custom_type_script = "uid://5fpkm17tw6kn"
 
 [node name="DevUI" parent="." unique_id=1327603635 instance=ExtResource("2_dnkej")]

@@ -84,6 +84,7 @@ func get_unmashed_object(type: Util.BuildType) -> Unmashed:
 			return null
 			
 
+
 func mash_child_blocks() -> void: ## Ok -> O(n)
 	if !can_perform_mash():
 		return
@@ -201,8 +202,6 @@ func jump() -> void:
 
 func _move(delta: float) -> void:
 	var was_on_floor: bool = is_on_floor()
-	
-	#print(velocity)
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta

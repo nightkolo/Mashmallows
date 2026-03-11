@@ -7,6 +7,8 @@ class_name Level
 @export var ignore_order: bool = false
 @export var no_progression: bool = false
 
+@onready var dev_ui: CanvasLayer = $DevUI
+
 
 func _ready() -> void:
 	if level_id < 0:
@@ -16,3 +18,6 @@ func _ready() -> void:
 	
 	GameMgr.current_level = self
 	GameMgr.level_entered.emit()
+	
+	dev_ui.visible = show_dev_ui
+	
