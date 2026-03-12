@@ -1,39 +1,53 @@
-## Under construction
 extends State
 class_name RunState
 
+# Actions available
+	#Jump
+	#Mash
+	#Unmash
 
 func _unhandled_input(event: InputEvent) -> void:
+	if player == null:
+		return
+	
 	if event.is_action_pressed("move_mash"):
-		entity.mash_child_blocks()
+		player.mash_child_blocks()
 	
 	if event.is_action_pressed("move_unmash"):
-		entity.unmash()
+		player.unmash()
 
 
 func physics_update(delta: float) -> void:
-	if entity == null:
+	if player == null:
 		return
 	
-	## Jump logic and platform fall is handled in player code
+	## Jump logic and platform fall is handled globally in player code
 	
-	var dir := entity.input_direction
+	var dir := player.input_direction
 
 	if dir == 0.0:
 		state_machine.change_state("IdleState")
 		return
 
-	# turning brake
-	if dir < 0.0 and entity.velocity.x > 0.0:
-		entity.velocity.x = move_toward(entity.velocity.x, 0.0, entity.stop_deceleration * delta)
+	# Stop friction
+	if dir < 0.0 and player.velocity.x > 0.0:
+		player.velocity.x = move_toward(
+			player.velocity.x,
+			0.0,
+			player.stop_deceleration * delta
+			)
 
-	elif dir > 0.0 and entity.velocity.x < 0.0:
-		entity.velocity.x = move_toward(entity.velocity.x, 0.0, entity.stop_deceleration * delta)
+	elif dir > 0.0 and player.velocity.x < 0.0:
+		player.velocity.x = move_toward(
+			player.velocity.x,
+			0.0,
+			player.stop_deceleration * delta
+			)
 
-	# normal acceleration
+	# Normal acceleration
 	else:
-		entity.velocity.x = move_toward(
-			entity.velocity.x,
-			dir * entity.speed,
-			entity.acceleration * delta
+		player.velocity.x = move_toward(
+			player.velocity.x,
+			dir * player.speed,
+			player.acceleration * delta
 		)

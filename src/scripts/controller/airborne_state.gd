@@ -4,32 +4,36 @@ class_name AirState
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if player == null:
+		return
+	
 	if event.is_action_pressed("move_mash"):
-		entity.mash_child_blocks()
+		player.mash_child_blocks()
 
 
 func enter(msg := {}):
 	pass
 	#if msg.get("jumped", false):
-		#entity.play_animation("jump")
+		#player.play_animation("jump")
 	#else:
-		#entity.play_animation("fall")
+		#player.play_animation("fall")
 
 
 func physics_update(delta: float) -> void:
-	if entity == null:
+	if player == null:
 		return
 	
-	entity.velocity += entity.get_gravity() * delta
+	player.velocity += player.get_gravity() * delta
 	
-	if Input.is_action_just_released("move_jump") and entity.velocity.y < 0.0:
-		entity.velocity.y = entity.velocity.y / 2.0
+	# Variable jump height
+	if Input.is_action_just_released("move_jump") and player.velocity.y < 0.0:
+		player.velocity.y = player.velocity.y / 3.0
 	
-	var dir := entity.input_direction
+	var dir := player.input_direction
 	
-	if entity.is_on_floor():
-		if entity.is_being_flown():
-			entity.cherry_bomb_air_timer.stop()
+	if player.is_on_floor():
+		if player.is_being_flown():
+			player.cherry_bomb_air_timer.stop()
 
 		if dir != 0.0:
 			state_machine.change_state("RunState")
@@ -39,15 +43,15 @@ func physics_update(delta: float) -> void:
 		return
 	
 	if dir != 0.0:
-		entity.velocity.x = move_toward(
-			entity.velocity.x,
-			dir * entity.speed,
-			entity.acceleration * delta
+		player.velocity.x = move_toward(
+			player.velocity.x,
+			dir * player.speed,
+			player.acceleration * delta
 		)
 	else:
-		if entity.is_being_flown():
-			entity.velocity.x = move_toward(
-				entity.velocity.x,
+		if player.is_being_flown():
+			player.velocity.x = move_toward(
+				player.velocity.x,
 				0.0,
-				entity.air_deceleration * delta
+				player.air_deceleration * delta
 			)

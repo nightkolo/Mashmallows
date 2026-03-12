@@ -7,7 +7,7 @@ class_name Level
 @export var ignore_order: bool = false
 @export var no_progression: bool = false
 
-@onready var dev_ui: CanvasLayer = $DevUI
+@onready var dev_ui: PackedScene = preload("res://scenes/menus/dev_ui.tscn")
 
 
 func _ready() -> void:
@@ -19,5 +19,9 @@ func _ready() -> void:
 	GameMgr.current_level = self
 	GameMgr.level_entered.emit()
 	
-	dev_ui.visible = show_dev_ui
+	if show_dev_ui:
+		var ui := dev_ui.instantiate()
+		
+		GameMgr.current_level.add_child(ui)
+		GameMgr.current_level.move_child(ui, 0)
 	

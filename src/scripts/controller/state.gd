@@ -6,10 +6,10 @@ extends Node
 ## Set automatically by the StateMachine on initialization.
 var state_machine: StateMachine
 
-## Reference to the entity (player, enemy, etc.)
+## Reference to the player (player, enemy, etc.)
 ## that this state operates on.
 ## Also injected by the StateMachine.
-var entity: Player
+var player: Player
 
 
 ## Called once when the state becomes active.

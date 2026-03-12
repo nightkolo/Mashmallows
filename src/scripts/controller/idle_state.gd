@@ -2,40 +2,37 @@
 extends State
 class_name IdleState
 
-#// Actions availabe
+# Actions available
 	#Jump
 	#Mash
 	#Unmash
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_mash"):
-		entity.mash_child_blocks()
+		player.mash_child_blocks()
 	
 	if event.is_action_pressed("move_unmash"):
-		entity.unmash()
+		player.unmash()
 
 
 func enter(msg := {}) -> void:
 	pass
-	#entity.velocity.x = 0
-	#entity.play_animation("idle")
-
+	
 
 func physics_update(delta: float) -> void:
-	if entity == null:
+	if player == null:
 		return
 	
-	# Horizontal movement input
-	var dir := entity.input_direction
+	## Jump logic and platform fall is handled globally in player code
 
 	# Start running
-	if dir != 0.0:
+	if player.input_direction != 0.0:
 		state_machine.change_state("RunState")
 		return
 
 	# Apply ground friction
-	entity.velocity.x = move_toward(
-		entity.velocity.x,
+	player.velocity.x = move_toward(
+		player.velocity.x,
 		0.0,
-		entity.deceleration * delta
+		player.deceleration * delta
 	)

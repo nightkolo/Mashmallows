@@ -27,6 +27,7 @@ show_dev_ui = true
 metadata/_custom_type_script = "uid://5fpkm17tw6kn"
 
 [node name="DevUI" parent="." unique_id=1327603635 instance=ExtResource("2_dnkej")]
+visible = false
 
 [node name="Cam" type="Camera2D" parent="." unique_id=1604178255]
 position = Vector2(640, 320)

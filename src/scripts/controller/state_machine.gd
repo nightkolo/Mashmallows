@@ -13,7 +13,7 @@ func _ready() -> void:
 		if child is State:
 			states[child.name] = child
 			child.state_machine = self
-			child.entity = get_parent() as Player
+			child.player = get_parent() as Player
 
 	if initial_state:
 		change_state(initial_state.name)
