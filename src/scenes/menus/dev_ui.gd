@@ -4,4 +4,6 @@ extends CanvasLayer
 
 
 func _process(delta: float) -> void:
-	pass
+	var s = GameMgr.current_player.state_machine.current_state
+	
+	state_label.text = "STATE: " + str(s)

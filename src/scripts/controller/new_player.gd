@@ -171,12 +171,9 @@ func return_position() -> void:
 	await get_tree().create_timer(0.01).timeout
 	
 	position = _pos_before_mash
+@onready var state_machine: StateMachine = $StateMachine
 
 
-func jump() -> void:
-	has_jumpped.emit()
-	
-	velocity.y = -jump_height
 
 
 ## Global player variables
@@ -201,8 +198,30 @@ func _new_move(delta: float) -> void:
 	
 	move_and_slide()
 	
+	## Fell off platform, All states go to Air state. 
+
+	## Jump logic, w/ coyote jump and buffer jump
 	if was_on_floor && !is_on_floor() && velocity.y >= 0.0:
 		coyote_jump_timer.start()
+		
+		state_machine.change_state("AirState", {"jumped": false})
+		
+	if Input.is_action_just_pressed("move_jump"):
+		if coyote_jump_timer.time_left > 0.0:
+			jump()
+		else:
+			jump_window_timer.start()
+			
+	## If the player in on the floor and within the jump window/jump buffer timer, then jump
+	if is_on_floor() && !jump_window_timer.is_stopped():
+		jump()
+
+
+func jump() -> void:
+	has_jumpped.emit()
+	
+	velocity.y = -jump_height
+	state_machine.change_state("AirState", {"jumped": true})
 
 
 func _move(delta: float) -> void:

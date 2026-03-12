@@ -13,6 +13,7 @@ signal completion_percentage_updated(perc: float)
 var is_checking_order_match: bool = false
 var has_won: bool = false
 
+
 var number_of_order_blocks: int
 var completion_percentage: float:
 	set(value):

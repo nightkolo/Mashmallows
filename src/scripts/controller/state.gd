@@ -9,7 +9,7 @@ var state_machine: StateMachine
 ## Reference to the entity (player, enemy, etc.)
 ## that this state operates on.
 ## Also injected by the StateMachine.
-var entity: TestPlayer
+var entity: Player
 
 
 ## Called once when the state becomes active.
