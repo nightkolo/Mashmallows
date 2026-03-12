@@ -25,7 +25,6 @@ signal mashable_state_changed(can_mash: bool)
 @onready var mashed: Mashed = $Mashed
 @onready var state_machine: StateMachine = $StateMachine
 
-
 var stop_deceleration: float = deceleration * 4.0
 var air_deceleration: float = deceleration / 3.2
 var input_direction: float
@@ -68,14 +67,6 @@ func _ready() -> void:
 	new_child_blocks.clear()
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("move_mash"):
-		mash_child_blocks()
-	
-	if event.is_action_pressed("move_unmash"):
-		unmash()
-
-
 func get_unmashed_object(type: Util.BuildType) -> Unmashed:
 	match type:
 		Util.BuildType.SQUARE:
@@ -85,7 +76,6 @@ func get_unmashed_object(type: Util.BuildType) -> Unmashed:
 		_:
 			return null
 			
-
 
 func mash_child_blocks() -> void: ## Ok -> O(n)
 	if !can_perform_mash():
@@ -147,7 +137,6 @@ func _handle_cherry_bomb(old_mashed: Mashed) -> void:
 	old_mashed.cherry_bomb_activated.emit(push_to)
 	
 	var time := Util.CHERRY_BOMB_WAITTIME if old_mashed.mash_type == Util.MashType.CHERRY_BOMB else 0.0
-		
 	
 	await get_tree().create_timer(time).timeout
 	
@@ -199,9 +188,7 @@ func jump() -> void:
 	
 	has_jumpped.emit()
 	
-	
 	velocity.y = -jump_height
-	
 	move_and_slide()
 	
 	state_machine.change_state("AirState", {"jumped": true})
@@ -213,10 +200,10 @@ func _move(delta: float) -> void:
 	_last_velocity_y = velocity.y
 	
 	move_and_slide()
-	
-	## Fell off platform, All states go to Air state. 
 
 	## Jump logic, w/ coyote jump and buffer jump
+	
+	## Fell of platform
 	if was_on_floor && !is_on_floor() && velocity.y >= 0.0:
 		coyote_jump_timer.start()
 		
@@ -233,55 +220,6 @@ func _move(delta: float) -> void:
 		jump()
 		
 	input_direction = Input.get_axis("move_left", "move_right")
-
-
-#func _move(delta: float) -> void:
-	#var was_on_floor: bool = is_on_floor()
-	#
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
-	#
-	#_last_velocity_y = velocity.y
-	#
-	#move_and_slide()
-#
-	#if was_on_floor && !is_on_floor() && velocity.y >= 0.0:
-		#coyote_jump_timer.start()
-#
-	## Variable jump height, coyote jump, and jump buffer
-	#if Input.is_action_just_pressed("move_jump"):
-		#if coyote_jump_timer.time_left > 0.0:
-			#jump()
-		#else:
-			#jump_window_timer.start()
-		#
-	## If the player in on the floor and within the jump window/jump buffer timer, then jump
-	#if is_on_floor() && !jump_window_timer.is_stopped():
-		#jump()
-	#
-	#if Input.is_action_just_released("move_jump") and velocity.y < 0.0:
-		#velocity.y = velocity.y / 2.0
-	#
-	## Horizontal movement with acceleration
-	#input_direction = Input.get_axis("move_left", "move_right")
-#
-	#if input_direction != 0:
-		##sprite.flip_h = input_direction < 0
-		#velocity.x = move_toward(velocity.x, input_direction * speed, acceleration * delta)
-	#else:
-		#if is_being_flown():
-			#velocity.x = move_toward(velocity.x, 0, air_deceleration * delta)
-			#
-			#if is_on_floor():
-				#cherry_bomb_air_timer.stop()
-		#else:
-			#velocity.x = move_toward(velocity.x, 0, deceleration * delta)
-			#
-	#if input_direction < 0 && velocity.x > 0.0:
-		#velocity.x = move_toward(velocity.x, 0.0, stop_deceleration * delta)
-#
-	#if input_direction > 0 && velocity.x < 0.0:
-		#velocity.x = move_toward(velocity.x, 0.0, stop_deceleration * delta)
 
 
 func _state() -> void:
