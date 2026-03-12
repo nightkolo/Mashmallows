@@ -8,10 +8,12 @@
 [ext_resource type="Script" uid="uid://cscy5x7o5jpgj" path="res://scripts/controller/airborne_state.gd" id="5_ksjmp"]
 [ext_resource type="Script" uid="uid://dhy6g1c121mo8" path="res://scripts/controller/idle_state.gd" id="5_q8hb4"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1691389058]
+[node name="Player" type="CharacterBody2D" unique_id=1691389058 node_paths=PackedStringArray("animator", "state_machine")]
 collision_layer = 2
 collision_mask = 105
 script = ExtResource("1_a8lix")
+animator = NodePath("PlayerAnimationComponent")
+state_machine = NodePath("StateMachine")
 
 [node name="Mashed" parent="." unique_id=499008387 instance=ExtResource("2_2147m")]
 mash_type = 99

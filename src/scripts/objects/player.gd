@@ -6,6 +6,7 @@ signal has_mashed()
 signal has_jumpped()
 signal has_landed(strength: float)
 signal cherry_bomb_activated()
+signal cherry_bomb_has_exploded()
 signal mashable_state_changed(can_mash: bool)
 
 @export var animate: bool = true ## @experimental
@@ -16,6 +17,8 @@ signal mashable_state_changed(can_mash: bool)
 @export_range(-2000.0, 2500.0, 1.0, "or_greater", "or_less") var deceleration: float = 2000.0
 @export_range(-400.0, 400.0, 1.0, "or_greater", "or_less") var jump_height: float = 1050.0
 @export_category("Objects to Assign")
+@export var animator: PlayerAnimationComponent
+@export var state_machine: StateMachine
 @export var unmashed_object: PackedScene = preload("res://scenes/objects/block_unmashed_1x1.tscn")
 @export var unmashed_object_1x2: PackedScene = preload("res://scenes/objects/block_unmashed_1x2.tscn")
 
@@ -23,7 +26,6 @@ signal mashable_state_changed(can_mash: bool)
 @onready var coyote_jump_timer: Timer = $CoyoteJumpTimer
 @onready var cherry_bomb_air_timer: Timer = $CherryBombAirTimer
 @onready var mashed: Mashed = $Mashed
-@onready var state_machine: StateMachine = $StateMachine
 
 var stop_deceleration: float = deceleration * 4.0
 var air_deceleration: float = deceleration / 3.2
@@ -35,6 +37,9 @@ var new_child_blocks: Array[Mashed] # Stack data structure
 var is_landed: bool
 var is_exploding: bool
 
+# Anim
+var tween_jump: Tween
+
 const CHERRY_BOMB_STRENGTH = 1600.0
 
 var _pos_before_mash: Vector2
@@ -45,8 +50,6 @@ var _last_velocity_y: float = 0.0
 func _ready() -> void:
 	GameMgr.current_player = self
 	
-	has_landed.connect(anim_land)
-	has_jumpped.connect(anim_jump)
 	has_mashed.connect(func():
 		if !_has_mashed:
 			GameLogic.player_mashed.emit()
@@ -59,12 +62,16 @@ func _ready() -> void:
 	cherry_bomb_activated.connect(func():
 		cherry_bomb_air_timer.start()
 		)
-		
-	mashable_state_changed.connect(func(m: bool):
-		print_debug(m)
-		)
 	
 	new_child_blocks.clear()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("move_mash"):
+		mash_child_blocks()
+	
+	if event.is_action_pressed("move_unmash"):
+		unmash()
 
 
 func get_unmashed_object(type: Util.BuildType) -> Unmashed:
@@ -99,7 +106,7 @@ func unmash() -> void: # -> O(1)
 	
 	match old_mashed.mash_type:
 		Util.MashType.CHERRY_BOMB:
-			if !is_on_floor():
+			if state_machine.current_state == AirState:
 				return
 				
 			_handle_cherry_bomb(old_mashed)
@@ -108,7 +115,7 @@ func unmash() -> void: # -> O(1)
 			_handle_cherry_bomb(old_mashed)
 			
 		_:
-			if !is_on_floor():
+			if state_machine.current_state == AirState:
 				return
 				
 			child_blocks.pop_back()
@@ -141,17 +148,24 @@ func _handle_cherry_bomb(old_mashed: Mashed) -> void:
 	await get_tree().create_timer(time).timeout
 	
 	child_blocks.pop_back()
-	GameLogic.cherry_bomb_exploded.emit()
 	
-	if push_to.y > push_to.x && velocity.y > 0:
-		velocity.y = 0.0
-	
-	velocity += -push_to * CHERRY_BOMB_STRENGTH
+	explode(push_to)
 	
 	old_mashed.queue_free()
 	
-	
 	is_exploding = false
+
+
+func explode(push: Vector2) -> void:
+	cherry_bomb_has_exploded.emit()
+	GameLogic.cherry_bomb_exploded.emit()
+	
+	if absf(push.y) > absf(push.x) && velocity.y > 0:
+		velocity.y = 0.0
+	
+	velocity += -push * CHERRY_BOMB_STRENGTH
+	
+	state_machine.change_state("AirState", {"jumped": false})
 
 
 func is_being_flown() -> bool:
@@ -230,8 +244,8 @@ func _state() -> void:
 	if !is_on_floor():
 		is_landed = false
 		
-	if is_on_ceiling() && _tween_jump:
-		_tween_jump.kill()
+	if is_on_ceiling() && tween_jump:
+		tween_jump.kill()
 		
 		for block: Mashed in child_blocks:
 			block.sprite.scale = Vector2.ONE * 0.5
@@ -251,57 +265,7 @@ func _physics_process(delta: float) -> void:
 		_move(delta)
 	_state()
 	_animate(delta)
-
-
-### Anim
-var _tween_land: Tween
-
-func anim_land(strength: float = 1.0) -> void:
-	if !animate:
-		return
 	
-	var mag: float = minf(strength / 50.0, 0.3)
-	
-	if _tween_land:
-		_tween_land.kill()
-	
-	_tween_land = get_tree().create_tween().set_parallel()
-	_tween_land.set_ease(Tween.EASE_OUT)
-	
-	for block: Mashed in child_blocks:
-		var ori: float = block.sprite_original_pos_y
-		
-		block.sprite_node.position.y = ori
-		
-		if block.is_on_ground():
-			_tween_land.tween_property(block.sprite_node,"scale",Vector2(1.0 + mag,1.0 - mag),0.07)
-			_tween_land.tween_property(block.sprite_node,"scale",Vector2(1.0,1.0),1.0).set_trans(Tween.TRANS_ELASTIC).set_delay(0.07)
-		else:
-			_tween_land.tween_property(block.sprite_node,"position:y",ori + (mag * 50.0),0.07)
-			_tween_land.tween_property(block.sprite_node,"position:y",ori,1.0).set_trans(Tween.TRANS_ELASTIC).set_delay(0.07)
-
-
-var _tween_jump: Tween
-
-func anim_jump() -> void:
-	if !animate:
-		return
-	
-	if _tween_jump:
-		_tween_jump.kill()
-		
-	_tween_jump = get_tree().create_tween().set_parallel()
-	
-	_tween_jump.set_ease(Tween.EASE_OUT)
-	
-	for block: Mashed in child_blocks:
-		if block.is_on_ground():
-			_tween_jump.tween_property(block.sprite, "scale", Vector2(0.875, 1.25) * 0.5, 0.1)
-			_tween_jump.tween_property(block.sprite, "scale", Vector2.ONE * 0.5, 0.6).set_trans(Tween.TRANS_SINE).set_delay(0.1)
-		else:
-			_tween_jump.tween_property(block.sprite, "scale", Vector2.ONE*0.5, 1.0)
-
-
 
 func _check_child_blocks() -> void:
 	if new_child_blocks.is_empty():

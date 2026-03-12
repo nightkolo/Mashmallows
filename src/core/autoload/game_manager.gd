@@ -10,7 +10,10 @@ var current_level_number: int:
 	set(value):
 		current_level_goal.level_number_label.text = "1-" + str(value)
 		current_level_number = value
-var current_level: Level
+var current_level: Level:
+	set(value):
+		current_level = value
+		current_level.show_dev_ui = true
 var current_player: Player
 var current_order_checker: OrderChecker
 var current_level_goal: LevelGoal

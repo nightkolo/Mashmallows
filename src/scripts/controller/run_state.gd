@@ -6,15 +6,6 @@ class_name RunState
 	#Mash
 	#Unmash
 
-func _unhandled_input(event: InputEvent) -> void:
-	if player == null:
-		return
-	
-	if event.is_action_pressed("move_mash"):
-		player.mash_child_blocks()
-	
-	if event.is_action_pressed("move_unmash"):
-		player.unmash()
 
 
 func physics_update(delta: float) -> void:
