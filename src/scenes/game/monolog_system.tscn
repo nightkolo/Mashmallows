@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://v88q26hyfptn"]
+
+[ext_resource type="Script" uid="uid://8084qpc74hbe" path="res://scripts/game/monolog_system.gd" id="1_x2jxm"]
+[ext_resource type="Script" uid="uid://bdvhnubwffufv" path="res://scripts/game/monolog_flow.gd" id="2_ikyvb"]
+[ext_resource type="Script" uid="uid://c0o6bw7881gjw" path="res://scripts/game/monolog_line.gd" id="2_nu05i"]
+
+[sub_resource type="Resource" id="Resource_ikyvb"]
+script = ExtResource("2_nu05i")
+monolog_line = "Hello there"
+metadata/_custom_type_script = "uid://c0o6bw7881gjw"
+
+[sub_resource type="Resource" id="Resource_2me44"]
+script = ExtResource("2_nu05i")
+monolog_line = "How are you!"
+metadata/_custom_type_script = "uid://c0o6bw7881gjw"
+
+[sub_resource type="Resource" id="Resource_2rqde"]
+script = ExtResource("2_ikyvb")
+monolog_flow = Array[ExtResource("2_nu05i")]([SubResource("Resource_ikyvb"), SubResource("Resource_2me44")])
+metadata/_custom_type_script = "uid://bdvhnubwffufv"
+
+[node name="Node2D" type="Node2D" unique_id=681393892 node_paths=PackedStringArray("label")]
+position = Vector2(176, 176)
+script = ExtResource("1_x2jxm")
+flow = SubResource("Resource_2rqde")
+label = NodePath("RichTextLabel")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=405371539]
+offset_right = 1072.0
+offset_bottom = 512.0
+bbcode_enabled = true

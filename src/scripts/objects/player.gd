@@ -106,7 +106,7 @@ func unmash() -> void: # -> O(1)
 	
 	match old_mashed.mash_type:
 		Util.MashType.CHERRY_BOMB:
-			if state_machine.current_state == AirState:
+			if state_machine.current_state is AirState:
 				return
 				
 			_handle_cherry_bomb(old_mashed)
@@ -115,7 +115,7 @@ func unmash() -> void: # -> O(1)
 			_handle_cherry_bomb(old_mashed)
 			
 		_:
-			if state_machine.current_state == AirState:
+			if state_machine.current_state is AirState:
 				return
 				
 			child_blocks.pop_back()

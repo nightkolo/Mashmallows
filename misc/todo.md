@@ -1,6 +1,6 @@
 # Todo
 
-## 2-27
+## 3-15
 
 ### Gameplay code
 
@@ -10,71 +10,37 @@
   - [ ] 1-9
   - [ ] 1-10
   - [x] Other levels
-- [x] Promo
-  - [x] Fun level
-- [x] Analyze game logic
-  - [x] Fix race conditions
-- [x] Optimize for prototype showcase
-  - [x] Eye movement fix
-  - [x] Transitions
-  - [x] Asset fixes
-- [x] **Level Goal**
-  - [x] Precentage completion
-  - [x] Correct block detect
 
 ## Code Improvements and goals
 
-- [ ] Player
-  - [ ] State machine
-    - [x] Learn
-    - [x] Document and protoype
-    - [x] Design diagram
-    - [ ] Implement
-  - [ ] Seek feedback
-- [x] Repeating BG plug-in (TiledSprite2D, WIP)
+- [ ] Plan out dialogue scenes
+  - [ ] Write the dialogue (Intro)
+  - [ ] Do composition
+  - [ ] Millie expressions
+- [ ] Early dialogue system
+  - [ ] Specialized re-usable node
 
 ### Assets and design (WIP)
 
-- [x] Cherry bomb design
-  - [x] Explosion
-  - [x] Particles
-- [x] Level Goal panel design
-  - [x] NinePatchRect
-  - [x] **Redesign**
-- [x] **Mini block redesign**
-  - [x] Redesign
-  - [x] **Colored**
-  - [x] **Greyscaled**
-- [x] Level Goal star design
-  - [x] Unattained
-  - [x] Attained
-  - [x] Eyes
-- [x] **BG Design**
 - [ ] NPC Character
   - [x] Name
   - [ ] **Design**
     - [x] Partially, sketch
     - [x] Name
-    - [ ] Shoe design
-    - [ ] Details
-    - [ ] Color scheme
-  - [ ] **Dialogue**
-  - [ ] **Purpose**
+    - [x] Shoe design
+    - [x] Details
+    - [x] Color scheme
+  - [x] **Dialogue**
+  - [x] **Purpose**
+  - [ ] Intro sequence
+    - [ ] dialogue
 - [ ] Vector design
+  - [ ] Work out expressions
 
 ### Animation
 
 - [ ] **Game Loop**
   - [x] Level Goal
-    - [x] **Order Blocks**
-      - [x] Colored
-      - [x] Uncolored
-    - [x] **Order Star**
-      - [x] Idle
-      - [x] Percentage loading
-      - [x] Particles
-      - [x] Animation
-      - [x] Attained Animation
   - [ ] Order complete
   - [ ] Level start
 - [ ] Cherry bomb
@@ -91,8 +57,7 @@
     - [ ] Game Freeze
     - [x] Screenshake
   - [ ] Player
-    - [ ] Ghost effect
-  - [ ] Do I need to add more?
+    - [ ] Ghost effectx
 - [ ] Blocks
   - [ ] Sleeping
   - [ ] Mashed
@@ -121,6 +86,55 @@
   - [ ] Level Select
   - [ ] Pause Menu
 - [ ] Intro Sequence
+
+## Complete
+
+ - [x] Promo
+  - [x] Fun level
+- [x] Analyze game logic
+  - [x] Fix race conditions
+- [x] Optimize for prototype showcase
+  - [x] Eye movement fix
+  - [x] Transitions
+  - [x] Asset fixes
+- [x] **Level Goal**
+  - [x] Precentage completion
+  - [x] Correct block detect
+
+- [ ] Player
+  - [x] State machine
+    - [x] Learn
+    - [x] Document and protoype
+    - [x] Design diagram
+    - [x] Implement
+  - [ ] Seek feedback
+- [x] Repeating BG plug-in (TiledSprite2D, WIP)
+
+- [x] Cherry bomb design
+  - [x] Explosion
+  - [x] Particles
+- [x] Level Goal panel design
+  - [x] NinePatchRect
+  - [x] **Redesign**
+- [x] **Mini block redesign**
+  - [x] Redesign
+  - [x] **Colored**
+  - [x] **Greyscaled**
+- [x] Level Goal star design
+  - [x] Unattained
+  - [x] Attained
+  - [x] Eyes
+- [x] **BG Design**
+
+    - [x] **Order Blocks**
+      - [x] Colored
+      - [x] Uncolored
+    - [x] **Order Star**
+      - [x] Idle
+      - [x] Percentage loading
+      - [x] Particles
+      - [x] Animation
+      - [x] Attained Animation
 
 ## 2-20 (Legacy)
 
